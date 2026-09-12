@@ -17,7 +17,6 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-       <h1 className="text-xl font-bold p-4">Sheet Data</h1>
 <ImageCarousel
         slides={[
           {
