@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gm-line: rgba(32, 27, 27, 0.12);
+  --gm-line-inv: rgba(255, 255, 255, 0.16);
+  --gm-text-soft: rgba(32, 27, 27, 0.62);
+  --gm-text-soft-inv: rgba(255, 255, 255, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FFFFFF;
+  color: #201B1B;
+}
