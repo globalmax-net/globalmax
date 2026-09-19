@@ -71,10 +71,7 @@ export default function ServicesGrid() {
                   </span>
                 </div>
 
-                {/* Arrow */}
-                <span className="h-9 w-9 rounded-full border border-[--gm-line] flex items-center justify-center text-sm transition-all duration-300 group-hover:bg-gm-ink group-hover:text-white group-hover:border-gm-ink">
-                  →
-                </span>
+                
               </div>
             </div>
           ))}

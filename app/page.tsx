@@ -1,9 +1,8 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import ServicesGrid from "@/components/ServicesGrid";
-import About from "@/components/About";
+
 import Stats from "@/components/Stats";
-import DirectorMessage from "@/components/DirectorMessage";
+
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
@@ -46,11 +45,8 @@ export default function Home() {
           },
         ]}
         intervalMs={5000}
-      />      <Brand />  
-          <DirectorMessage />
-
-      <ServicesGrid />
-      <About />
+      />      <Brand />
+     
       <Stats />
       <WhyChooseUs />
       <ContactCTA />

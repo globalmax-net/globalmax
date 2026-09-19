@@ -2,22 +2,22 @@ import React from "react";
 
 export default function DirectorMessage() {
   return (
-    <section id="director" className="bg-gm-paper-2 py-28">
+    <section id="director" className="bg-gm-paper-2 py-28 md:py-32">
       <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-        <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft]">
+        <div className="font-mono text-[12.5px] uppercase tracking-widest mb-6 text-[--gm-text-soft]">
           Director&apos;s message
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-12 items-start">
           <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0">
-            <div className="w-25 h-25 md:w-25 md:h-25 rounded-full overflow-hidden shrink-0">
-  <img
-    src="/profile.jpg"
-    alt="Profile"
-    className="w-full h-full object-cover"
-  />
-</div>
-            <div className="md:mt-5">
+            <div className="w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-white/60 shadow-md shrink-0 bg-white">
+              <img
+                src="/profile.jpg"
+                alt="Profile"
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="md:mt-5 text-center md:text-left">
               <div className="font-display text-2xl font-semibold">S. Surenthiran</div>
               <div className="font-mono text-[12px] uppercase tracking-wide text-[--gm-text-soft] mt-1">
                 Founder, Owner &amp; Director
@@ -26,7 +26,7 @@ export default function DirectorMessage() {
           </div>
 
           <div>
-            <p className="font-display text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-8">
+            <p className="font-display text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-8 text-[--gm-ink]">
               &ldquo;Business is not merely about providing a service — it is about creating
               opportunities, building trust, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;
@@ -52,7 +52,6 @@ export default function DirectorMessage() {
                 corporate organisations, media partners, investors, and other strategic partners.
               </p>
             </div>
-
           </div>
         </div>
       </div>

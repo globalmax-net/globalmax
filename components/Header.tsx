@@ -3,10 +3,11 @@
 import React from "react";
 
 const NAV_LINKS = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Director's Message", href: "#director" },
-  { label: "Why Us", href: "#why-us" },
+  { label: "Services", href: "services" },
+  { label: "About", href: "about" },
+  { label: "Director's Message", href: "director-message" },
+  { label: "Vision", href: "vision" },
+  { label: "Success", href: "success" },
 
 ];
 

@@ -37,16 +37,7 @@ export default function About() {
             solutions.
           </p>
 
-          <div className="mt-8 border-l-2 border-gm-green pl-5">
-            <p className="font-display text-lg italic leading-snug">
-              &ldquo;To digitize every essential aspect of human life — connecting services,
-              opportunities, and communities through integrated digital platforms that make living
-              simpler, smarter, and more accessible.&rdquo;
-            </p>
-            <span className="font-mono text-[12px] uppercase tracking-wide text-[--gm-text-soft-inv] mt-3 block">
-              Our vision
-            </span>
-          </div>
+          
 
           <ul className="mt-9 flex flex-col">
             {FACTS.map((fact, i) => (
