@@ -31,17 +31,9 @@ export default function ImageCarousel({
     return () => clearInterval(timer);
   }, [slides.length, intervalMs]);
 
-  const previousSlide = () => {
-    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
-  };
-
-  const nextSlide = () => {
-    setCurrent((prev) => (prev + 1) % slides.length);
-  };
-
   return (
-    <section className="bg-white py-10 md:py-14">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
+    <section className="bg-white py-8 md:py-12">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
 
         {/* Carousel */}
         <div className="relative overflow-hidden rounded-2xl shadow-xl">
@@ -56,7 +48,7 @@ export default function ImageCarousel({
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className="relative min-w-full h-[300px] sm:h-[380px] md:h-[480px]"
+                className="relative min-w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[620px]"
               >
                 <Image
                   src={slide.src}
@@ -88,36 +80,6 @@ export default function ImageCarousel({
               </div>
             ))}
           </div>
-
-          {/* Previous */}
-          {slides.length > 1 && (
-            <button
-              onClick={previousSlide}
-              aria-label="Previous slide"
-              className="absolute left-4 top-1/2 -translate-y-1/2
-                         w-10 h-10 md:w-12 md:h-12
-                         rounded-full bg-white/90 text-gm-ink
-                         flex items-center justify-center
-                         shadow-lg transition hover:bg-white"
-            >
-              ←
-            </button>
-          )}
-
-          {/* Next */}
-          {slides.length > 1 && (
-            <button
-              onClick={nextSlide}
-              aria-label="Next slide"
-              className="absolute right-4 top-1/2 -translate-y-1/2
-                         w-10 h-10 md:w-12 md:h-12
-                         rounded-full bg-white/90 text-gm-ink
-                         flex items-center justify-center
-                         shadow-lg transition hover:bg-white"
-            >
-              →
-            </button>
-          )}
 
           {/* Dots */}
           {slides.length > 1 && (

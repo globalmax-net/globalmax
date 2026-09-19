@@ -11,6 +11,7 @@ const COLUMNS = [
       "Airline Ticketing",
       "Digital Marketing",
       "Media — Vettri TV",
+      
       "Real Estate",
     ],
   },

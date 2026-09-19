@@ -17,21 +17,41 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-<ImageCarousel
-        slides={[
+      <ImageCarousel
+        slides={[       
           {
-            src: "/Profile.jpg",
-            alt: "Global Max chairman in the company office",
-            title: "Global Max Networks",
+            src: "/VisaConsultancy.png",
+            alt: "Visa Consultancy",
+            title: "Visa Consultancy",
+            description: "End-to-end support across all visa categories, from eligibility checks to pre-departure guidance.",
+          },
+
+          {
+            src: "/DigitalMarketing.png",
+            alt: "Digital Marketing",
+            title: "Digital Marketing",
+            description: "Social media management, content creation, SEO, and promotional campaigns.",
+          },
+          {
+            src:"/RealEstateServices.png",
+            alt: "Real Estate Service",
+            title: "Real Estate Service",
             description: "Connecting futures with trusted, professional services.",
+          },
+          {
+            src: "/Student&EducationGuidance.png",
+            alt: "Student Education Guidance",
+            title: "Student Education Guidance",
+            description: "Counselling on study destinations, admissions, interview prep, and scholarship guidance.",
           },
         ]}
         intervalMs={5000}
-      />      <Brand />
+      />      <Brand />  
+          <DirectorMessage />
+
       <ServicesGrid />
       <About />
       <Stats />
-      <DirectorMessage />
       <WhyChooseUs />
       <ContactCTA />
       <Footer />

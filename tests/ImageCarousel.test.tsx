@@ -20,13 +20,13 @@ describe("ImageCarousel", () => {
     vi.useRealTimers();
   });
 
-  it("moves between slides with the navigation controls", () => {
+  it("moves between slides with the dot navigation", () => {
     render(<ImageCarousel slides={slides} />);
 
     expect(screen.getByAltText("First slide")).toBeVisible();
-    fireEvent.click(screen.getByRole("button", { name: "Next slide" }));
+    fireEvent.click(screen.getByRole("button", { name: "Go to slide 2" }));
     expect(screen.getByAltText("Second slide")).toBeVisible();
-    fireEvent.click(screen.getByRole("button", { name: "Previous slide" }));
+    fireEvent.click(screen.getByRole("button", { name: "Go to slide 1" }));
     expect(screen.getByAltText("First slide")).toBeVisible();
   });
 
