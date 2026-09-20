@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     "A diversified Sri Lankan company connecting people with opportunities, services, and global possibilities — visa consultancy, education guidance, ticketing, media, and more.",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: {

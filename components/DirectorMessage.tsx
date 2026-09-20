@@ -2,14 +2,14 @@ import React from "react";
 
 export default function DirectorMessage() {
   return (
-    <section id="director" className="bg-gm-paper-2 py-28 md:py-32">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
+    <section id="director" className="bg-gm-paper-2 py-16 sm:py-24 md:py-32">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="font-mono text-[12.5px] uppercase tracking-widest mb-6 text-[--gm-text-soft]">
           Director&apos;s message
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-12 items-start">
-          <div className="flex flex-row md:flex-col items-center md:items-start gap-4 md:gap-0">
+          <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-center sm:text-left">
             <div className="w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-white/60 shadow-md shrink-0 bg-white">
               <img
                 src="/profile.jpg"
@@ -26,7 +26,7 @@ export default function DirectorMessage() {
           </div>
 
           <div>
-            <p className="font-display text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-8 text-[--gm-ink]">
+            <p className="font-display text-xl sm:text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-6 md:mb-8 text-[--gm-ink]">
               &ldquo;Business is not merely about providing a service — it is about creating
               opportunities, building trust, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;

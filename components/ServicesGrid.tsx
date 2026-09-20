@@ -4,16 +4,16 @@ import { SERVICES, UPCOMING } from "./types";
 
 export default function ServicesGrid() {
   return (
-    <section id="services" className="bg-white py-28">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
+    <section id="services" className="bg-white py-16 sm:py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
 
         {/* Section Header */}
-        <div className="max-w-[640px] mb-14">
+        <div className="max-w-[640px] mb-10 md:mb-14">
           <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft]">
             What we do
           </div>
 
-          <h2 className="font-display text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
             One ecosystem, six core services.
           </h2>
 
@@ -29,7 +29,7 @@ export default function ServicesGrid() {
           {SERVICES.map((service, i) => (
             <div
               key={service.code}
-              className="group bg-slate-200 rounded-2xl border border-[--gm-line] p-8 min-h-[280px] flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group bg-slate-200 rounded-2xl border border-[--gm-line] p-5 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               {/* Number + Code */}
               <div className="flex items-center justify-between mb-6">
@@ -82,7 +82,7 @@ export default function ServicesGrid() {
           {UPCOMING.map((item) => (
             <div
               key={item.name}
-              className="rounded-xl border border-dashed border-[--gm-line] p-6 flex items-start gap-4 bg-white"
+              className="rounded-xl border border-dashed border-[--gm-line] p-5 sm:p-6 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 bg-white"
             >
               <span className="font-mono text-[11px] uppercase tracking-wide whitespace-nowrap px-2.5 py-1 border bg-gm-green text-white rounded-md">
                 Coming soon

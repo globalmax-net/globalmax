@@ -21,9 +21,9 @@ const COLUMNS = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gm-ink text-white border-t border-[--gm-line-inv] pt-16">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-        <div className="grid grid-cols-1 md:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-12 pb-16">
+    <footer className="bg-gm-ink text-white border-t border-[--gm-line-inv] pt-12 md:pt-16">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 md:gap-12 pb-12 md:pb-16">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo.jpeg" alt="Global Max Networks" className="h-11 w-auto object-contain bg-white p-1.5" />
@@ -31,13 +31,13 @@ export default function Footer() {
               Connecting people with opportunities, services, and global possibilities. Est. 2022,
               Sri Lanka.
             </p>
-            <form className="flex mt-4 border border-[--gm-line-inv]" onSubmit={(e) => e.preventDefault()}>
+            <form className="flex flex-col sm:flex-row mt-4 border border-[--gm-line-inv] min-w-0" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="you@company.com"
-                className="font-body bg-transparent border-none px-3.5 py-3 text-sm flex-1 outline-none text-white placeholder:text-[--gm-text-soft-inv]"
+                className="font-body bg-transparent border-none px-3.5 py-3 text-sm flex-1 min-w-0 outline-none text-white placeholder:text-[--gm-text-soft-inv]"
               />
-              <button type="submit" className="font-mono px-4 border-none text-[13px] bg-gm-green text-white">
+              <button type="submit" className="font-mono px-4 py-3 sm:py-0 border-none text-[13px] bg-gm-green text-white shrink-0">
                 Subscribe
               </button>
             </form>
@@ -61,7 +61,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="flex justify-between items-center flex-wrap gap-3.5 py-6 border-t border-[--gm-line-inv]">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center flex-wrap gap-3.5 py-6 border-t border-[--gm-line-inv]">
           <p className="font-mono text-xs text-[--gm-text-soft-inv]">
             © 2026 GLOBAL MAX NETWORKS (PRIVATE) LIMITED
           </p>

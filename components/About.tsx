@@ -8,9 +8,9 @@ const FACTS = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-gm-ink text-white py-28">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div className="aspect-square border border-[--gm-line-inv] flex items-center justify-center p-10">
+    <section id="about" className="bg-gm-ink text-white py-16 sm:py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+        <div className="aspect-square max-w-[420px] mx-auto md:max-w-none w-full border border-[--gm-line-inv] flex items-center justify-center p-6 sm:p-10">
           <svg viewBox="0 0 200 200" fill="none" className="w-full h-full">
             <circle cx="100" cy="100" r="70" stroke="#FFFFFF" strokeOpacity="0.2" />
             <path d="M30 100a70 70 0 0 1 122-46" stroke="#8B2332" strokeWidth="4" strokeLinecap="round" />
@@ -25,7 +25,7 @@ export default function About() {
           <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft-inv]">
             About us
           </div>
-          <h2 className="font-display text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
             A diversified Sri Lankan company with a global outlook.
           </h2>
           <p className="mt-5 text-base text-[--gm-text-soft-inv]">

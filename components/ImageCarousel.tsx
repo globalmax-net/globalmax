@@ -32,7 +32,7 @@ export default function ImageCarousel({
   }, [slides.length, intervalMs]);
 
   return (
-    <section className="bg-white py-8 md:py-12">
+    <section className="bg-white py-6 sm:py-8 md:py-12">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
 
         {/* Carousel */}
@@ -48,7 +48,7 @@ export default function ImageCarousel({
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className="relative min-w-full h-[320px] sm:h-[420px] md:h-[520px] lg:h-[620px]"
+                className="relative min-w-full h-[220px] sm:h-[380px] md:h-[520px] lg:h-[620px]"
               >
                 <Image
                   src={slide.src}
@@ -63,9 +63,9 @@ export default function ImageCarousel({
 
                 {/* Content */}
                 {(slide.title || slide.description) && (
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-10">
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6 md:p-10 pb-12 sm:pb-6 md:pb-10">
                     {slide.title && (
-                      <h2 className="font-display text-2xl md:text-4xl font-semibold text-white">
+                      <h2 className="font-display text-xl sm:text-2xl md:text-4xl font-semibold text-white">
                         {slide.title}
                       </h2>
                     )}

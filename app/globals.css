@@ -13,7 +13,18 @@ html {
   scroll-behavior: smooth;
 }
 
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
 body {
   background: #FFFFFF;
   color: #201B1B;
+}
+
+img,
+video {
+  max-width: 100%;
 }

@@ -15,10 +15,10 @@ const OBJECTIVES = [
 
 export default function VisionMission() {
   return (
-      <section id="vision-mission" className=" bg-slate-200 text-black py-28">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
+      <section id="vision-mission" className=" bg-slate-200 text-black py-16 sm:py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="mb-12 text-center md:text-left">
-          <h2 className="font-display text-[30px] md:text-[42px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+          <h2 className="font-display text-[24px] sm:text-[30px] md:text-[42px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
             GLOBAL MAX
             <span className="block">NETWORKS (PRIVATE) LIMITED</span>
           </h2>
@@ -56,7 +56,7 @@ export default function VisionMission() {
               Our Objectives
             </h3>
 
-            <ol className="mt-5 list-decimal pl-6 space-y-3 text-[15px] md:text-[17px] leading-8 text-[--gm-text-soft]  text-black">
+            <ol className="mt-5 list-decimal pl-5 sm:pl-6 space-y-3 text-[15px] md:text-[17px] leading-7 md:leading-8 text-[--gm-text-soft]  text-black">
               {OBJECTIVES.map((objective) => (
                 <li key={objective}>{objective}</li>
               ))}

@@ -34,18 +34,18 @@ const REASONS: Reason[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="py-28">
-      <div className="max-w-[1180px] mx-auto px-6 md:px-10">
-        <div className="max-w-[640px] mb-14">
+    <section id="why-us" className="py-16 sm:py-20 md:py-28">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
+        <div className="max-w-[640px] mb-10 md:mb-14">
           <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft]">
             Why choose us
           </div>
-          <h2 className="font-display text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
             Why choose Global Max?
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {REASONS.map((reason, i) => (
             <article key={reason.title} className={`pt-5 border-t-2 ${i % 2 === 0 ? "border-gm-maroon" : "border-gm-green"}`}>
               <h4 className="font-display text-[19px] font-semibold leading-snug mb-3">{reason.title}</h4>
