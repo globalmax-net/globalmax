@@ -1,22 +1,35 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const COLUMNS = [
   {
     title: "Services",
     links: [
-      "Visa Consultancy",
-      "Student & Education Guidance",
-      "Airline Ticketing",
-      "Digital Marketing",
-      "Media — Vettri TV",
-      
-      "Real Estate",
+      { label: "Visa Consultancy", href: "/services" },
+      { label: "Student & Education Guidance", href: "/services" },
+      { label: "Airline Ticketing", href: "/services" },
+      { label: "Digital Marketing", href: "/services" },
+      { label: "Media — Vettri TV", href: "/services" },
+      { label: "Real Estate", href: "/services" },
     ],
   },
-  { title: "Company", links: ["About Us", "Our Vision", "Our Mission"] },
-  { title: "Coming Soon", links: ["Job Portal", "Matrimonial Platform"] },
+  {
+    title: "Company",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Our Vision", href: "/vision" },
+      { label: "Our Mission", href: "/vision" },
+    ],
+  },
+  {
+    title: "Coming Soon",
+    links: [
+      { label: "Job Portal", href: "#" },
+      { label: "Matrimonial Platform", href: "#" },
+    ],
+  },
 ];
 
 export default function Footer() {
@@ -50,10 +63,13 @@ export default function Footer() {
               </h5>
               <ul className="flex flex-col gap-3">
                 {col.links.map((link) => (
-                  <li key={link}>
-                    <a href="#" className="text-[14.5px] opacity-85 hover:opacity-100 hover:underline">
-                      {link}
-                    </a>
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
+                      className="text-[14.5px] opacity-85 hover:opacity-100 hover:underline"
+                    >
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
