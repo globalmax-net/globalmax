@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Slide {
   src: string;
@@ -32,11 +33,17 @@ export default function ImageCarousel({
   }, [slides.length, intervalMs]);
 
   return (
-    <section className="bg-white py-6 sm:py-8 md:py-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 md:px-8">
+    <section className="bg-white">
+      <div>
 
         {/* Carousel */}
-        <div className="relative overflow-hidden rounded-2xl shadow-xl">
+        <div className="relative overflow-hidden shadow-xl">
+          <Link
+            href="/about"
+            className="absolute right-4 top-4 z-10 bg-gm-maroon px-4 py-2 font-mono text-xs uppercase tracking-wide text-white transition hover:bg-gm-maroon-dark sm:right-6 sm:top-6 sm:px-5 sm:py-3"
+          >
+            About Us
+          </Link>
 
           {/* Slides */}
           <div
@@ -48,14 +55,16 @@ export default function ImageCarousel({
             {slides.map((slide, index) => (
               <div
                 key={index}
-                className="relative min-w-full h-[220px] sm:h-[380px] md:h-[520px] lg:h-[620px]"
+                className="relative min-w-full"
               >
                 <Image
                   src={slide.src}
                   alt={slide.alt}
-                  fill
+                  width={1672}
+                  height={941}
                   priority={index === 0}
-                  className="object-cover"
+                  sizes="100vw"
+                  className="block h-auto w-full"
                 />
 
                 {/* Dark Overlay */}

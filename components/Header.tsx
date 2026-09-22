@@ -28,11 +28,11 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur border-b border-[--gm-line] bg-white/90">
+    <header className="sticky top-0 z-50 backdrop-blur border-b border-[--gm-line] bg-white/90 ">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between h-16 sm:h-[76px] gap-3">
         <Link href="/" className="flex items-center min-w-0 shrink-0" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.jpeg" alt="Global Max Networks" className="h-9 sm:h-11 w-auto max-w-[160px] object-contain" />
+          <img src="/logo.jpeg" alt="Global Max Networks" className="h-9 sm:h-11 w-auto max-w-[180px] object-contain" />
         </Link>
 
         <nav className="hidden lg:flex gap-6 xl:gap-8">
@@ -40,7 +40,7 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="font-mono text-[13px] uppercase tracking-wider text-[--gm-text-soft] pb-1 border-b border-transparent hover:border-gm-maroon hover:text-gm-maroon transition whitespace-nowrap"
+              className="font-mono text-[14px] uppercase tracking-wider text-[--gm-text-soft] pb-1 border-b border-transparent hover:border-gm-maroon hover:text-gm-maroon transition whitespace-nowrap"
             >
               {link.label}
             </Link>
@@ -50,7 +50,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/#contact"
-            className="hidden sm:inline-flex font-mono text-[13px] md:text-[15px] uppercase tracking-wide border border-gm-maroon text-gm-maroon px-3 md:px-[18px] py-2 md:py-[9px] transition hover:bg-gm-maroon hover:text-white whitespace-nowrap"
+            className="hidden sm:inline-flex font-mono text-[13px] md:text-[15px] uppercase tracking-wide border border-gm-green text-gm-maroon px-3 md:px-[18px] py-2 md:py-[9px] transition hover:bg-gm-maroon hover:text-white whitespace-nowrap"
           >
             Get in Touch
           </Link>

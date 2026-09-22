@@ -26,8 +26,8 @@ const COLUMNS = [
   {
     title: "Coming Soon",
     links: [
-      { label: "Job Portal", href: "#" },
-      { label: "Matrimonial Platform", href: "#" },
+      { label: "Job Portal"},
+      { label: "Matrimonial Platform"},
     ],
   },
 ];
@@ -44,16 +44,7 @@ export default function Footer() {
               Connecting people with opportunities, services, and global possibilities. Est. 2022,
               Sri Lanka.
             </p>
-            <form className="flex flex-col sm:flex-row mt-4 border border-[--gm-line-inv] min-w-0" onSubmit={(e) => e.preventDefault()}>
-              <input
-                type="email"
-                placeholder="you@company.com"
-                className="font-body bg-transparent border-none px-3.5 py-3 text-sm flex-1 min-w-0 outline-none text-white placeholder:text-[--gm-text-soft-inv]"
-              />
-              <button type="submit" className="font-mono px-4 py-3 sm:py-0 border-none text-[13px] bg-gm-green text-white shrink-0">
-                Subscribe
-              </button>
-            </form>
+           
           </div>
 
           {COLUMNS.map((col) => (
@@ -64,12 +55,16 @@ export default function Footer() {
               <ul className="flex flex-col gap-3">
                 {col.links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-[14.5px] opacity-85 hover:opacity-100 hover:underline"
-                    >
-                      {link.label}
-                    </Link>
+                    {"href" in link ? (
+                      <Link
+                        href={link.href}
+                        className="text-[14.5px] opacity-85 hover:opacity-100 hover:underline"
+                      >
+                        {link.label}
+                      </Link>
+                    ) : (
+                      <span className="text-[14.5px] opacity-85">{link.label}</span>
+                    )}
                   </li>
                 ))}
               </ul>
