@@ -28,7 +28,7 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur border-b border-[--gm-line] bg-white/90 ">
+    <header className="fixed inset-x-0 top-0 z-50 backdrop-blur border-b border-[--gm-line] bg-white/90">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between h-16 sm:h-[76px] gap-3">
         <Link href="/" className="flex items-center min-w-0 shrink-0" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}

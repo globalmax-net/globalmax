@@ -9,11 +9,11 @@ const TICKER_FACTS = [
   "DIGITAL PLATFORMS IN DEVELOPMENT",
 ];
 
-export default function Hero() {
+export function HeroContent() {
   const tickerItems = [...TICKER_FACTS, ...TICKER_FACTS];
 
   return (
-    <section id="top" className="bg-gm-ink text-white">
+    <>
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 pt-12 sm:pt-16 md:pt-24 pb-10 md:pb-14">
         <div>
           <div className="flex items-start sm:items-center gap-2.5 font-mono text-[11px] sm:text-[12.5px] uppercase tracking-widest mb-6 text-[#E3B4BC]">
@@ -37,6 +37,12 @@ export default function Hero() {
               className="font-mono text-[13px] uppercase tracking-wide px-5 sm:px-6 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-gm-maroon bg-gm-maroon text-white hover:bg-gm-maroon-dark hover:border-gm-maroon-dark transition"
             >
               Explore our services →
+            </a>
+            <a
+              href="/about"
+              className="font-mono text-[13px] uppercase tracking-wide px-5 sm:px-6 py-3 sm:py-3.5 inline-flex items-center justify-center gap-2 w-full sm:w-auto border border-gm-maroon bg-gm-maroon text-white hover:bg-gm-maroon-dark hover:border-gm-maroon-dark transition"
+            >
+              About Us →
             </a>
             
           </div>
@@ -71,6 +77,14 @@ export default function Hero() {
           ))}
         </div>
       </div>
+    </>
+  );
+}
+
+export default function Hero() {
+  return (
+    <section id="top" className="bg-gm-ink text-white">
+      <HeroContent />
     </section>
   );
 }

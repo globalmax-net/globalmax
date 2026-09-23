@@ -9,10 +9,10 @@ export default function Brand() {
 				<Image
 					src="/Partner.png"
 					alt="We are your partner"
-					width={1942}
-					height={809}
-					sizes="(max-width: 1180px) 100vw, 1180px"
-					className="h-auto w-full max-w-[900px]"
+					width={1600}
+					height={700}
+					sizes="(max-width: 1100px) 100vw, 1180px"
+					className="h-auto w-full max-w-[600px]"
 				/>
 			</div>
 		</section>

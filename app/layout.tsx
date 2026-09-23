@@ -41,7 +41,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable} ${plexMono.variable}`}>
-      <body className="font-body">{children}</body>
+      <body className="font-body pt-16 sm:pt-[76px]">{children}</body>
     </html>
   );
 }

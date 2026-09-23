@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { HeroContent } from "./Hero";
 
 interface Slide {
   src: string;
@@ -14,11 +15,13 @@ interface Slide {
 interface ImageCarouselProps {
   slides: Slide[];
   intervalMs?: number;
+  showHeroContent?: boolean;
 }
 
 export default function ImageCarousel({
   slides,
   intervalMs = 5000,
+  showHeroContent = false,
 }: ImageCarouselProps) {
   const [current, setCurrent] = useState(0);
 
@@ -37,17 +40,12 @@ export default function ImageCarousel({
       <div>
 
         {/* Carousel */}
-        <div className="relative overflow-hidden shadow-xl">
-          <Link
-            href="/about"
-            className="absolute right-4 top-4 z-10 bg-gm-maroon px-4 py-2 font-mono text-xs uppercase tracking-wide text-white transition hover:bg-gm-maroon-dark sm:right-6 sm:top-6 sm:px-5 sm:py-3"
-          >
-            About Us
-          </Link>
+        <div className="relative overflow-hidden bg-gm-ink shadow-xl">
+          
 
           {/* Slides */}
           <div
-            className="flex transition-transform duration-700 ease-in-out"
+            className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
             style={{
               transform: `translateX(-${current * 100}%)`,
             }}
@@ -60,11 +58,10 @@ export default function ImageCarousel({
                 <Image
                   src={slide.src}
                   alt={slide.alt}
-                  width={1672}
-                  height={941}
+                  fill
                   priority={index === 0}
                   sizes="100vw"
-                  className="block h-auto w-full"
+                  className="object-cover opacity-50"
                 />
 
                 {/* Dark Overlay */}
@@ -90,9 +87,15 @@ export default function ImageCarousel({
             ))}
           </div>
 
+          {showHeroContent && (
+            <div className="relative z-10 text-white">
+              <HeroContent />
+            </div>
+          )}
+
           {/* Dots */}
           {slides.length > 1 && (
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
+            <div className="absolute bottom-20 left-1/2 z-20 -translate-x-1/2 flex gap-2">
               {slides.map((_, index) => (
                 <button
                   key={index}
