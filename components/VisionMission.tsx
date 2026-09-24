@@ -2,12 +2,11 @@ import React from "react";
 
 export default function VisionMission() {
   return (
-      <section id="vision-mission" className="bg-white text-black pt-16 pb-4 sm:pt-20 sm:pb-6 md:pt-28 md:pb-8">
+      <section id="vision-mission" className="bg-white text-black pt-16 pb-4 sm:pt-15 sm:pb-6 md:pt-15 md:pb-8">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="mb-12 text-center md:text-left">
-          <h2 className="font-display text-[24px] sm:text-[30px] md:text-[42px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+          <h2 className="font-display text-[24px] sm:text-[30px] md:text-[42px] font-semibold tracking-tight leading-tight text-[--gm-ink] md:text-center">
             GLOBAL MAX
-            <span className="block">NETWORKS (PRIVATE) LIMITED</span>
           </h2>
 
           <div className="mt-6 font-mono text-[12.5px] uppercase tracking-[0.22em] text-[--gm-text-soft]">

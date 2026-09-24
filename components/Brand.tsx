@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Brand() {
   return (
-		<section id="brand" className="bg-white py-10 sm:py-16">
-			<div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center">
+		<section id="brand" className="bg-gm-green py-5 sm:py-12">
+			<div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center shadow-md">
 				<Image
 					src="/Partner.png"
 					alt="We are your partner"
