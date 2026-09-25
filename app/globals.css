@@ -28,3 +28,16 @@ img,
 video {
   max-width: 100%;
 }
+@keyframes gm-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-gm-scan {
+  animation: gm-scan 3s ease-in-out infinite;
+}
