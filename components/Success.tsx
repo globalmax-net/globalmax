@@ -7,7 +7,7 @@ const STATS = [
   { value: "2", label: "Platforms in development" },
 ];
 
-export default function Stats() {
+export default function Success() {
   return (
     <section className=" border-white/60 shadow-md shrink-0 bg-gm-maroon pt-4 pb-4 sm:pt-6 sm:pb-6 md:pt-8 md:pb-8">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center">

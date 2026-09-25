@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ImageCarousel from "@/components/ImageCarousel";
-import Stats from "@/components/Stats";
+import Success from "@/components/Success";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
@@ -49,9 +49,9 @@ export default function Home() {
 />
       <Brand />
       <Hero />
-      <Services />
-      <Stats />
       <DirectorMessage />
+      <Success />
+      <Services />
       <VisionMission />
       <WhyChooseUs />
       <ContactCTA />
