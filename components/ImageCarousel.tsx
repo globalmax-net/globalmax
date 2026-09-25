@@ -8,6 +8,7 @@ interface Slide {
   title: string;
   subtitle: string;
   description: string;
+  alt?: string;
 }
 
 interface ImageCarouselProps {
@@ -54,7 +55,7 @@ export default function ImageCarousel({
               >
                 <Image
                   src={slide.src}
-                  alt={slide.title}
+                  alt={slide.alt ?? slide.title}
                   fill
                   priority={index === 0}
                   sizes="100vw"
@@ -196,7 +197,7 @@ export default function ImageCarousel({
       </div>
 
       {/* PROGRESS ANIMATION */}
-      <style jsx>{`
+      <style>{`
         @keyframes carouselProgress {
           from {
             width: 0%;

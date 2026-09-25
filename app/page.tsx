@@ -10,6 +10,7 @@ import VisionMission from "@/components/VisionMission";
 import Services from "@/components/ServicesGrid";
 import DirectorMessage from "@/components/DirectorMessage";
 import Objectives from "@/components/Objectives";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 
 export default function Home() {
   return (
@@ -57,6 +58,7 @@ export default function Home() {
       <Objectives />
       <ContactCTA />
       <Footer />
+      <ScrollToTopButton />
     </main>
   );
 }
