@@ -9,6 +9,7 @@ import Brand from "@/components/Brand";
 import VisionMission from "@/components/VisionMission";
 import Services from "@/components/ServicesGrid";
 import DirectorMessage from "@/components/DirectorMessage";
+import Objectives from "@/components/Objectives";
 
 export default function Home() {
   return (
@@ -53,7 +54,7 @@ export default function Home() {
       <Success />
       <Services />
       <VisionMission />
-      <WhyChooseUs />
+      <Objectives />
       <ContactCTA />
       <Footer />
     </main>

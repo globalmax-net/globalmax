@@ -4,7 +4,8 @@ export default function DirectorMessage() {
   return (
     <section id="director" className="bg-gm-paper-2 py-16 sm:py-24 md:py-32">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
-        <div className="font-mono text-[12.5px] uppercase tracking-widest mb-6 text-[--gm-text-soft]">
+        <div className="mt-6 mb-8 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-maroon">
+          <span className="h-[2px] w-8 bg-gm-maroon" />
           Director&apos;s message
         </div>
 
@@ -28,7 +29,7 @@ export default function DirectorMessage() {
           <div>
             <p className="font-display text-xl sm:text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-6 md:mb-8 text-[--gm-ink]">
               &ldquo;Business is not merely about providing a service — it is about creating
-              opportunities, building trust, and becoming a reliable partner in people&apos;s
+              <span className="text-gm-green"> opportunities, building trust</span>, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;
             </p>
 

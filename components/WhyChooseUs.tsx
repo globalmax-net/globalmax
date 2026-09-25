@@ -37,11 +37,13 @@ export default function WhyChooseUs() {
     <section id="why-us" className="pt-4 pb-10 sm:pt-6 sm:pb-12 md:pt-8 md:pb-20 ">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="max-w-[640px] mb-10 md:mb-14">
-          <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft]">
+          <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-green">
+            <span className="h-[2px] w-8 bg-gm-green" />
             Why choose us
           </div>
-          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
-            Why choose Global Max?
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+            Why choose
+            <span className="block text-gm-maroon">Global Max?</span>
           </h2>
         </div>
 

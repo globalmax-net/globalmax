@@ -9,12 +9,14 @@ export default function ServicesGrid() {
 
         {/* Section Header */}
         <div className="max-w-[640px] mb-10 md:mb-14">
-          <div className="font-mono text-[12.5px] uppercase tracking-widest mb-4 text-[--gm-text-soft]">
+          <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-maroon">
+            <span className="h-[2px] w-8 bg-gm-maroon" />
             What we do
           </div>
 
-          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight">
-            One ecosystem, six core services.
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+            One ecosystem,
+            <span className="block text-gm-green">six core services.</span>
           </h2>
 
           <p className="mt-4 text-base max-w-[520px] text-[--gm-text-soft]">
