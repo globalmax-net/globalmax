@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gm-line: rgba(32, 27, 27, 0.12);
+  --gm-line-inv: rgba(255, 255, 255, 0.16);
+  --gm-text-soft: rgba(32, 27, 27, 0.62);
+  --gm-text-soft-inv: rgba(255, 255, 255, 0.7);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+body {
+  background: #FFFFFF;
+  color: #201B1B;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+@keyframes gm-scan {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-gm-scan {
+  animation: gm-scan 3s ease-in-out infinite;
+}
