@@ -1,15 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES2017",
-<<<<<<< HEAD
     "lib": [
       "dom",
       "dom.iterable",
       "esnext"
     ],
-=======
-    "lib": ["dom", "dom.iterable", "esnext"],
->>>>>>> 7b9ce15b55ab9b9b2f9ade1828cb34427cdf30ce
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -19,7 +15,6 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-<<<<<<< HEAD
     "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
@@ -44,15 +39,4 @@
   "exclude": [
     "node_modules"
   ]
-=======
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [{ "name": "next" }],
-    "paths": {
-      "@/*": ["./*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.d.ts", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
->>>>>>> 7b9ce15b55ab9b9b2f9ade1828cb34427cdf30ce
 }
