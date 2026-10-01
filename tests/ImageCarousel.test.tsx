@@ -10,9 +10,9 @@ vi.mock("next/image", () => ({
 }));
 
 const slides = [
-  { src: "/one.jpg", alt: "First slide", title: "First", subtitle: "First subtitle", description: "First description" },
-  { src: "/two.jpg", alt: "Second slide", title: "Second", subtitle: "Second subtitle", description: "Second description" },
-  { src: "/three.jpg", alt: "Third slide", title: "Third", subtitle: "Third subtitle", description: "Third description" },
+  { src: "/one.jpg", alt: "First slide", title: "First" },
+  { src: "/two.jpg", alt: "Second slide", title: "Second" },
+  { src: "/three.jpg", alt: "Third slide", title: "Third" },
 ];
 
 describe("ImageCarousel", () => {
