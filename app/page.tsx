@@ -11,8 +11,11 @@ import Services from "@/components/ServicesGrid";
 import DirectorMessage from "@/components/DirectorMessage";
 import Objectives from "@/components/Objectives";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import { getServices, getUpcomingPlatforms } from "@/lib/services";
 
-export default function Home() {
+export default async function Home() {
+  const [services, upcoming] = await Promise.all([getServices(), getUpcomingPlatforms()]);
+
   return (
     <main>
       <Header />
@@ -53,7 +56,7 @@ export default function Home() {
       <Hero />
       <DirectorMessage />
       <Success />
-      <Services />
+      <Services services={services} upcoming={upcoming} />
       <VisionMission />
       <Objectives />
       <ContactCTA />

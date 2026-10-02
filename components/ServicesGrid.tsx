@@ -1,8 +1,16 @@
 
 import React from "react";
-import { SERVICES, UPCOMING } from "./types";
+import { SERVICES, UPCOMING, type Service, type UpcomingPlatform } from "./types";
 
-export default function ServicesGrid() {
+export default function ServicesGrid({
+  services = SERVICES,
+  upcoming = UPCOMING,
+}: {
+  services?: Service[];
+  upcoming?: UpcomingPlatform[];
+}) {
+  const serviceCount = services.length === 6 ? "six" : String(services.length);
+
   return (
     <section id="services" className="bg-white py-16 sm:py-20 md:py-28">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
@@ -16,7 +24,7 @@ export default function ServicesGrid() {
 
           <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
             One ecosystem,
-            <span className="block text-gm-green">six core services.</span>
+            <span className="block text-gm-green">{serviceCount} core services.</span>
           </h2>
 
           <p className="mt-4 text-base max-w-[520px] text-[--gm-text-soft]">
@@ -28,7 +36,7 @@ export default function ServicesGrid() {
 
         {/* Service Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SERVICES.map((service, i) => (
+          {services.map((service, i) => (
             <div
               key={service.code}
               className="group bg-slate-200 rounded-2xl border border-[--gm-line] p-5 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
@@ -81,7 +89,7 @@ export default function ServicesGrid() {
 
         {/* Upcoming Platforms */}
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {UPCOMING.map((item) => (
+          {upcoming.map((item) => (
             <div
               key={item.name}
               className="rounded-xl border border-dashed border-[--gm-line] p-5 sm:p-6 flex flex-col sm:flex-row items-start gap-3 sm:gap-4 bg-white"

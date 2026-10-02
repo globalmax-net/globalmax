@@ -18,4 +18,27 @@ describe("ServicesGrid", () => {
       expect(screen.getByText(platform.description)).toBeInTheDocument();
     }
   });
+
+  it("supports additional services and CMS-provided upcoming platforms", () => {
+    const extraService = {
+      ...SERVICES[0],
+      code: "NEW",
+      name: "Additional Service",
+    };
+    const extraPlatform = {
+      name: "Future Platform",
+      description: "A platform managed through the CMS.",
+    };
+
+    render(
+      <ServicesGrid
+        services={[...SERVICES, extraService]}
+        upcoming={[extraPlatform]}
+      />
+    );
+
+    expect(screen.getByText("7 core services.")).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Additional Service" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { name: "Future Platform" })).toBeInTheDocument();
+  });
 });
