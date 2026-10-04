@@ -81,51 +81,51 @@ export default function AdminUpcomingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-8">
+    <main className="min-h-screen bg-gm-paper-2 p-4 text-gm-ink sm:p-8">
       <div className="mx-auto max-w-7xl">
-        <header className="mb-8 flex flex-wrap items-center justify-between gap-4 border border-gray-100 bg-white p-4 shadow-sm">
-          <h1 className="text-2xl font-bold text-gray-900">Manage Upcoming</h1>
+        <header className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-gm-paper-2 bg-white p-4 shadow-sm">
+          <h1 className="text-2xl font-bold text-gm-ink">Manage Upcoming</h1>
           <div className="flex items-center gap-4">
-            <Link href="/admin" className="text-sm text-gray-600 hover:text-black">Admin</Link>
+            <Link href="/admin" className="text-sm font-medium text-gm-green-dark hover:text-gm-maroon">Admin</Link>
             <LogoutButton />
           </div>
         </header>
 
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
-          <section className="overflow-hidden border border-gray-100 bg-white shadow-sm">
-            <div className="border-b border-gray-200 px-5 py-4">
-              <h2 className="font-semibold text-gray-900">Coming soon cards</h2>
+          <section className="overflow-hidden rounded-lg border border-gm-paper-2 bg-white shadow-sm">
+            <div className="border-b border-gm-paper-2 px-5 py-4">
+              <h2 className="font-semibold text-gm-ink">Coming soon cards</h2>
             </div>
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-gm-paper-2">
               {platforms.map((platform) => (
                 <article key={platform._id} className="flex flex-wrap items-center justify-between gap-4 p-5">
                   <div className="min-w-0">
-                    <h3 className="font-semibold text-gray-900">{platform.name}</h3>
-                    <p className="mt-1 line-clamp-2 text-sm text-gray-500">{platform.description}</p>
+                    <h3 className="font-semibold text-gm-ink">{platform.name}</h3>
+                    <p className="mt-1 line-clamp-2 text-sm text-gm-ink/60">{platform.description}</p>
                   </div>
                   <div className="flex shrink-0 gap-4 text-sm">
-                    <button type="button" onClick={() => editPlatform(platform)} className="font-medium text-blue-700 hover:underline">Edit</button>
+                    <button type="button" onClick={() => editPlatform(platform)} className="font-medium text-gm-green hover:text-gm-green-dark hover:underline">Edit</button>
                     <button type="button" onClick={() => deletePlatform(platform)} className="font-medium text-red-700 hover:underline">Delete</button>
                   </div>
                 </article>
               ))}
-              {platforms.length === 0 && !error && <p className="p-6 text-sm text-gray-500">No upcoming items found.</p>}
+              {platforms.length === 0 && !error && <p className="p-6 text-sm text-gm-ink/60">No upcoming items found.</p>}
             </div>
           </section>
 
-          <form onSubmit={savePlatform} className="h-fit space-y-4 border border-gray-100 bg-white p-5 shadow-sm">
-            <h2 className="font-semibold text-gray-900">{editingId ? "Edit upcoming item" : "Add an upcoming item"}</h2>
-            <label className="block text-sm font-medium text-gray-700">
+          <form onSubmit={savePlatform} className="h-fit space-y-4 rounded-lg border border-gm-paper-2 bg-white p-5 shadow-sm">
+            <h2 className="font-semibold text-gm-ink">{editingId ? "Edit upcoming item" : "Add an upcoming item"}</h2>
+            <label className="block text-sm font-medium text-gm-ink/80">
               Name
               <input
                 required
                 maxLength={100}
                 value={form.name}
                 onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                className="mt-1 w-full rounded-md border border-gray-300 p-2 text-sm"
+                className="mt-1 w-full rounded-md border border-gm-paper-2 p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
               />
             </label>
-            <label className="block text-sm font-medium text-gray-700">
+            <label className="block text-sm font-medium text-gm-ink/80">
               Description
               <textarea
                 required
@@ -133,19 +133,19 @@ export default function AdminUpcomingPage() {
                 rows={5}
                 value={form.description}
                 onChange={(event) => setForm((current) => ({ ...current, description: event.target.value }))}
-                className="mt-1 w-full rounded-md border border-gray-300 p-2 text-sm"
+                className="mt-1 w-full rounded-md border border-gm-paper-2 p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
               />
             </label>
             {error && <p role="alert" className="text-sm text-red-700">{error}</p>}
             <div className="flex gap-3">
-              <button type="submit" disabled={loading} className="flex-1 rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50">
+              <button type="submit" disabled={loading} className="flex-1 rounded-md bg-gm-green px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gm-green-dark disabled:opacity-50">
                 {loading ? "Saving..." : editingId ? "Save changes" : "Add upcoming item"}
               </button>
               {editingId && (
                 <button
                   type="button"
                   onClick={() => { setEditingId(null); setForm(emptyForm); setError(""); }}
-                  className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
+                  className="rounded-md border border-gm-paper-2 px-4 py-2 text-sm font-medium text-gm-ink/80 hover:bg-gm-paper-2"
                 >
                   Cancel
                 </button>

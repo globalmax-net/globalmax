@@ -5,6 +5,12 @@ export interface IUser {
   email: string;
   password: string;
   role: "admin";
+  sessionVersion: number;
+  failedLoginAttempts: number;
+  lockUntil?: Date;
+  passwordResetTokenHash?: string;
+  passwordResetExpires?: Date;
+  passwordResetRequestedAt?: Date;
   createdAt: Date;
   updatedAt: Date;
 }
@@ -33,6 +39,12 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
       select: false,
     },
     role: { type: String, enum: ["admin"], default: "admin" },
+    sessionVersion: { type: Number, default: 0 },
+    failedLoginAttempts: { type: Number, default: 0, select: false },
+    lockUntil: { type: Date, select: false },
+    passwordResetTokenHash: { type: String, select: false },
+    passwordResetExpires: { type: Date, select: false },
+    passwordResetRequestedAt: { type: Date, select: false },
   },
   { timestamps: true }
 );

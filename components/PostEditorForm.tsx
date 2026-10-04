@@ -146,20 +146,20 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
   };
 
   return (
-    <main className="min-h-screen bg-gray-50 p-4 sm:p-8">
-      <div className="mx-auto max-w-3xl border border-gray-100 bg-white p-5 shadow-sm sm:p-8">
-        <div className="mb-8 flex items-center justify-between border-b pb-4">
-          <h1 className="text-2xl font-bold text-gray-900">
+    <main className="min-h-screen bg-gm-paper-2 p-4 text-gm-ink sm:p-8">
+      <div className="mx-auto max-w-3xl rounded-lg border border-gm-paper-2 bg-white p-5 shadow-sm sm:p-8">
+        <div className="mb-8 flex items-center justify-between border-b border-gm-paper-2 pb-4">
+          <h1 className="text-2xl font-bold text-gm-ink">
             {postId ? "Edit Post" : "Create New Post"}
           </h1>
-          <Link href="/admin/posts" className="text-sm text-gray-500 hover:text-gray-900">
+          <Link href="/admin/posts" className="text-sm text-gm-green-dark hover:text-gm-maroon">
             Cancel
           </Link>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label htmlFor="post-title" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="post-title" className="block text-sm font-medium text-gm-ink/80">
               Title / Heading
             </label>
             <input
@@ -167,12 +167,12 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
               required
               value={title}
               onChange={(event) => setTitle(event.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2 text-sm shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md border border-gm-paper-2 p-2 text-sm shadow-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
             />
           </div>
 
           <div>
-            <label htmlFor="post-category" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="post-category" className="block text-sm font-medium text-gm-ink/80">
               Category
             </label>
             <input
@@ -180,12 +180,12 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
               required
               value={category}
               onChange={(event) => setCategory(event.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2 text-sm shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md border border-gm-paper-2 p-2 text-sm shadow-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
             />
           </div>
 
           <div>
-            <label htmlFor="post-content" className="block text-sm font-medium text-gray-700">
+            <label htmlFor="post-content" className="block text-sm font-medium text-gm-ink/80">
               Content (HTML/Text)
             </label>
             <textarea
@@ -194,21 +194,21 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
               rows={8}
               value={content}
               onChange={(event) => setContent(event.target.value)}
-              className="mt-1 block w-full rounded-md border border-gray-300 p-2 text-sm shadow-sm focus:border-black focus:ring-black"
+              className="mt-1 block w-full rounded-md border border-gm-paper-2 p-2 text-sm shadow-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
               placeholder="Write your post content here."
             />
           </div>
 
-          <section className="space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <section className="space-y-4 rounded-2xl border border-gm-paper-2 bg-gm-paper-2 p-5">
             <div>
-              <h2 className="text-base font-semibold text-gray-900">Post appearance</h2>
-              <p className="mt-1 text-sm text-gray-500">
+              <h2 className="text-base font-semibold text-gm-ink">Post appearance</h2>
+              <p className="mt-1 text-sm text-gm-ink/60">
                 Choose an accent theme and reading width for this post.
               </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <label htmlFor="post-theme" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-theme" className="block text-sm font-medium text-gm-ink/80">
                 Accent theme
                 <select
                   id="post-theme"
@@ -216,7 +216,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostTheme(event.target.value)) setTheme(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_THEMES).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -224,7 +224,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 </select>
               </label>
 
-              <label htmlFor="post-content-width" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-content-width" className="block text-sm font-medium text-gm-ink/80">
                 Article width
                 <select
                   id="post-content-width"
@@ -232,7 +232,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostContentWidth(event.target.value)) setContentWidth(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_CONTENT_WIDTHS).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -248,17 +248,17 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
               <p className={`mt-3 text-lg font-bold ${POST_THEMES[theme].accent}`}>
                 Appearance preview
               </p>
-              <p className="mt-1 text-sm text-gray-600">
+              <p className="mt-1 text-sm text-gm-ink/60">
                 {POST_CONTENT_WIDTHS[contentWidth].label}
               </p>
             </div>
           </section>
 
-          <section className="space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+          <section className="space-y-4 rounded-2xl border border-gm-paper-2 bg-gm-paper-2 p-5">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
-                <h2 className="text-base font-semibold text-gray-900">Typography</h2>
-                <p className="mt-1 text-sm text-gray-500">
+                <h2 className="text-base font-semibold text-gm-ink">Typography</h2>
+                  <p className="mt-1 text-sm text-gm-ink/60">
                   Customize this post&apos;s reading experience. Preview updates as you edit.
                 </p>
               </div>
@@ -270,14 +270,14 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   setLineHeight("comfortable");
                   setFontFamily("sans");
                 }}
-                className="text-sm font-medium text-blue-700 hover:text-blue-900"
+                className="text-sm font-medium text-gm-green hover:text-gm-green-dark"
               >
                 Reset typography
               </button>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
-              <label htmlFor="post-font-size" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-font-size" className="block text-sm font-medium text-gm-ink/80">
                 Body font size
                 <select
                   id="post-font-size"
@@ -285,7 +285,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostFontSize(event.target.value)) setFontSize(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_TYPOGRAPHY.fontSize).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -293,7 +293,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 </select>
               </label>
 
-              <label htmlFor="post-paragraph-spacing" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-paragraph-spacing" className="block text-sm font-medium text-gm-ink/80">
                 Paragraph spacing
                 <select
                   id="post-paragraph-spacing"
@@ -301,7 +301,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostParagraphSpacing(event.target.value)) setParagraphSpacing(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_TYPOGRAPHY.paragraphSpacing).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -309,7 +309,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 </select>
               </label>
 
-              <label htmlFor="post-line-height" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-line-height" className="block text-sm font-medium text-gm-ink/80">
                 Line height
                 <select
                   id="post-line-height"
@@ -317,7 +317,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostLineHeight(event.target.value)) setLineHeight(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_TYPOGRAPHY.lineHeight).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -325,7 +325,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 </select>
               </label>
 
-              <label htmlFor="post-font-family" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-font-family" className="block text-sm font-medium text-gm-ink/80">
                 Font style
                 <select
                   id="post-font-family"
@@ -333,7 +333,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   onChange={(event) => {
                     if (isPostFontFamily(event.target.value)) setFontFamily(event.target.value);
                   }}
-                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                  className="mt-1 w-full rounded-md border border-gm-paper-2 bg-white p-2 text-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
                 >
                   {Object.entries(POST_TYPOGRAPHY.fontFamily).map(([key, option]) => (
                     <option key={key} value={key}>{option.label}</option>
@@ -344,9 +344,9 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
 
             <div
               aria-label="Typography preview"
-              className={`rounded-xl border border-gray-200 bg-white p-5 text-gray-700 ${POST_TYPOGRAPHY.fontSize[fontSize].className} ${POST_TYPOGRAPHY.fontFamily[fontFamily].className} ${POST_TYPOGRAPHY.paragraphSpacing[paragraphSpacing].className} ${POST_TYPOGRAPHY.lineHeight[lineHeight].className}`}
+              className={`rounded-xl border border-gm-paper-2 bg-white p-5 text-gm-ink/80 ${POST_TYPOGRAPHY.fontSize[fontSize].className} ${POST_TYPOGRAPHY.fontFamily[fontFamily].className} ${POST_TYPOGRAPHY.paragraphSpacing[paragraphSpacing].className} ${POST_TYPOGRAPHY.lineHeight[lineHeight].className}`}
             >
-              <h3 className="mb-3 text-lg font-bold text-gray-900">Preview your post text</h3>
+              <h3 className="mb-3 text-lg font-bold text-gm-ink">Preview your post text</h3>
               <p className="mb-4">
                 This preview shows how the selected font style, size, line height, and paragraph
                 spacing will appear to readers.
@@ -358,20 +358,20 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
             </div>
           </section>
 
-          <section className="space-y-4 border-t border-gray-200 pt-6">
+          <section className="space-y-4 border-t border-gm-paper-2 pt-6">
             <div>
-              <h2 className="text-base font-semibold text-gray-900">Cover Photos</h2>
-              <p className="mt-1 text-sm text-gray-500">
+              <h2 className="text-base font-semibold text-gm-ink">Cover Photos</h2>
+              <p className="mt-1 text-sm text-gm-ink/60">
                 Add one main cover photo and as many gallery photos as you need.
               </p>
             </div>
 
             <div>
-              <label htmlFor="post-thumbnail" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-thumbnail" className="block text-sm font-medium text-gm-ink/80">
                 Main cover photo
               </label>
               {initialData?.thumbnail && !thumbnailFile && (
-                <div className="relative mt-2 aspect-[16/9] max-w-lg overflow-hidden rounded-md bg-gray-100">
+                <div className="relative mt-2 aspect-[16/9] max-w-lg overflow-hidden rounded-md bg-gm-paper-2">
                   <Image
                     src={initialData.thumbnail}
                     alt="Current cover photo"
@@ -387,20 +387,20 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 accept="image/*"
                 required={!initialData?.thumbnail}
                 onChange={(event) => setThumbnailFile(event.target.files?.[0] ?? null)}
-                className="mt-2 block w-full text-sm text-gray-600 file:mr-4 file:rounded-md file:border-0 file:bg-gray-100 file:px-4 file:py-2 file:font-medium hover:file:bg-gray-200"
+                className="mt-2 block w-full text-sm text-gm-ink/70 file:mr-4 file:rounded-md file:border-0 file:bg-gm-paper-2 file:px-4 file:py-2 file:font-medium hover:file:bg-gm-paper-2/70"
               />
-              {thumbnailFile && <p className="mt-2 text-sm text-gray-500">Selected: {thumbnailFile.name}</p>}
+              {thumbnailFile && <p className="mt-2 text-sm text-gm-ink/60">Selected: {thumbnailFile.name}</p>}
             </div>
 
             <div>
-              <label htmlFor="post-gallery" className="block text-sm font-medium text-gray-700">
+              <label htmlFor="post-gallery" className="block text-sm font-medium text-gm-ink/80">
                 Gallery photos ({galleryImages.length + galleryFiles.length})
               </label>
               {(galleryImages.length > 0 || galleryFiles.length > 0) && (
                 <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
                   {galleryImages.map((image, index) => (
                     <div key={`${image}-${index}`}>
-                      <div className="relative aspect-square overflow-hidden rounded-md bg-gray-100">
+                      <div className="relative aspect-square overflow-hidden rounded-md bg-gm-paper-2">
                         <Image
                           src={image}
                           alt={`Gallery photo ${index + 1}`}
@@ -420,7 +420,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                   ))}
                   {galleryFiles.map((file, index) => (
                     <div key={`${file.name}-${file.lastModified}`} className="min-w-0">
-                      <div className="flex aspect-square items-center justify-center rounded-md bg-gray-100 p-2 text-center text-xs text-gray-600">
+                      <div className="flex aspect-square items-center justify-center rounded-md bg-gm-paper-2 p-2 text-center text-xs text-gm-ink/70">
                         {file.name}
                       </div>
                       <button
@@ -440,7 +440,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 accept="image/*"
                 multiple
                 onChange={handleGallerySelection}
-                className="mt-3 block w-full text-sm text-gray-600 file:mr-4 file:rounded-md file:border-0 file:bg-gray-100 file:px-4 file:py-2 file:font-medium hover:file:bg-gray-200"
+                className="mt-3 block w-full text-sm text-gm-ink/70 file:mr-4 file:rounded-md file:border-0 file:bg-gm-paper-2 file:px-4 file:py-2 file:font-medium hover:file:bg-gm-paper-2/70"
               />
             </div>
           </section>
@@ -450,7 +450,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
           <button
             type="submit"
             disabled={loading}
-            className="flex w-full justify-center rounded-md bg-black px-4 py-2 text-sm font-medium text-white hover:bg-gray-800 disabled:opacity-50"
+            className="flex w-full justify-center rounded-md bg-gm-maroon px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gm-maroon-dark disabled:opacity-50"
           >
             {loading ? "Saving post..." : postId ? "Save Changes" : "Publish Post"}
           </button>

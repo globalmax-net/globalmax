@@ -20,14 +20,14 @@ export function SuccessBanner({
   message?: string;
 }) {
   return (
-    <div className="mb-6 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 shadow-sm">
+    <div className="mb-6 rounded-2xl border border-gm-green/20 bg-green-50 p-4 shadow-sm">
       <div className="flex items-start gap-3">
-        <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-emerald-600 text-xs font-bold text-white">
+        <div className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-gm-green text-xs font-bold text-white">
           ✓
         </div>
         <div>
-          <p className="text-sm font-semibold text-emerald-900">{title}</p>
-          {message ? <p className="mt-1 text-sm text-emerald-700">{message}</p> : null}
+          <p className="text-sm font-semibold text-gm-green-dark">{title}</p>
+          {message ? <p className="mt-1 text-sm text-gm-green">{message}</p> : null}
         </div>
       </div>
     </div>

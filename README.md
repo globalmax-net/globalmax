@@ -91,6 +91,24 @@ npm run dev
 
 Then open `http://localhost:3000`.
 
+## Admin account and password recovery
+
+Admin sign-in cookies expire when the browser session ends, with a 12-hour maximum
+token lifetime. Five consecutive incorrect passwords temporarily lock the account
+for 15 minutes. Password recovery uses one-time links that expire after 15 minutes.
+
+Configure these server-side environment variables to enable email recovery:
+
+| Variable | Purpose |
+|---|---|
+| `APP_URL` | Public base URL of this app (for example `https://globalmax.example`) |
+| `RESEND_API_KEY` | Resend API key |
+| `RESEND_FROM_EMAIL` | Sender address verified in Resend |
+
+For local development, `APP_URL` can use `http://localhost:3000`. Never commit
+provider keys or passwords; set them in `.env.local` locally and in the deployment
+platform's secret environment-variable settings in production.
+
 Run the unit tests with:
 
 ```bash
