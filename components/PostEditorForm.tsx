@@ -4,6 +4,23 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import {
+  POST_CONTENT_WIDTHS,
+  POST_THEMES,
+  POST_TYPOGRAPHY,
+  isPostContentWidth,
+  isPostFontFamily,
+  isPostFontSize,
+  isPostLineHeight,
+  isPostParagraphSpacing,
+  isPostTheme,
+  type PostContentWidth,
+  type PostFontFamily,
+  type PostFontSize,
+  type PostLineHeight,
+  type PostParagraphSpacing,
+  type PostTheme,
+} from "@/lib/post-style";
 
 interface PostFormData {
   title: string;
@@ -11,14 +28,18 @@ interface PostFormData {
   content: string;
   thumbnail: string;
   extraImages: string[];
+  theme: PostTheme;
+  contentWidth: PostContentWidth;
+  fontSize: PostFontSize;
+  paragraphSpacing: PostParagraphSpacing;
+  lineHeight: PostLineHeight;
+  fontFamily: PostFontFamily;
 }
 
 interface PostEditorFormProps {
   postId?: string;
   initialData?: PostFormData;
 }
-
-const MAX_GALLERY_IMAGES = 4;
 
 export default function PostEditorForm({ postId, initialData }: PostEditorFormProps) {
   const router = useRouter();
@@ -27,6 +48,18 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
   const [title, setTitle] = useState(initialData?.title ?? "");
   const [category, setCategory] = useState(initialData?.category ?? "");
   const [content, setContent] = useState(initialData?.content ?? "");
+  const [theme, setTheme] = useState<PostTheme>(initialData?.theme ?? "ocean");
+  const [contentWidth, setContentWidth] = useState<PostContentWidth>(
+    initialData?.contentWidth ?? "standard"
+  );
+  const [fontSize, setFontSize] = useState<PostFontSize>(initialData?.fontSize ?? "medium");
+  const [paragraphSpacing, setParagraphSpacing] = useState<PostParagraphSpacing>(
+    initialData?.paragraphSpacing ?? "comfortable"
+  );
+  const [lineHeight, setLineHeight] = useState<PostLineHeight>(
+    initialData?.lineHeight ?? "comfortable"
+  );
+  const [fontFamily, setFontFamily] = useState<PostFontFamily>(initialData?.fontFamily ?? "sans");
   const [thumbnailFile, setThumbnailFile] = useState<File | null>(null);
   const [galleryImages, setGalleryImages] = useState(initialData?.extraImages ?? []);
   const [galleryFiles, setGalleryFiles] = useState<File[]>([]);
@@ -63,11 +96,6 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
       return;
     }
 
-    if (galleryImages.length + galleryFiles.length > MAX_GALLERY_IMAGES) {
-      setError(`A post can have one cover photo and up to ${MAX_GALLERY_IMAGES} gallery photos.`);
-      return;
-    }
-
     setLoading(true);
     try {
       const filesToUpload = [...(thumbnailFile ? [thumbnailFile] : []), ...galleryFiles];
@@ -81,14 +109,27 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
       const response = await fetch(postId ? `/api/posts/${postId}` : "/api/posts", {
         method: postId ? "PUT" : "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title, category, content, thumbnail, extraImages }),
+        body: JSON.stringify({
+          title,
+          category,
+          content,
+          thumbnail,
+          extraImages,
+          theme,
+          contentWidth,
+          fontSize,
+          paragraphSpacing,
+          lineHeight,
+          fontFamily,
+        }),
       });
       const body = (await response.json().catch(() => ({}))) as { error?: string };
       if (!response.ok) {
         throw new Error(body.error || "Failed to save post.");
       }
 
-      router.push("/admin/posts");
+      const successMessage = postId ? "Post updated successfully." : "Post created successfully.";
+      router.push(`/admin/posts?message=${encodeURIComponent(successMessage)}`);
       router.refresh();
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "An error occurred.");
@@ -99,15 +140,9 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
 
   const handleGallerySelection = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFiles = Array.from(event.currentTarget.files ?? []);
-    const availableSlots = Math.max(0, MAX_GALLERY_IMAGES - galleryImages.length);
     event.currentTarget.value = "";
-
-    if (selectedFiles.length > availableSlots) {
-      setError(`You can add up to ${availableSlots} more gallery photo(s).`);
-    } else {
-      setError("");
-    }
-    setGalleryFiles(selectedFiles.slice(0, availableSlots));
+    setError("");
+    setGalleryFiles((current) => [...current, ...selectedFiles]);
   };
 
   return (
@@ -164,11 +199,170 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
             />
           </div>
 
+          <section className="space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+            <div>
+              <h2 className="text-base font-semibold text-gray-900">Post appearance</h2>
+              <p className="mt-1 text-sm text-gray-500">
+                Choose an accent theme and reading width for this post.
+              </p>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label htmlFor="post-theme" className="block text-sm font-medium text-gray-700">
+                Accent theme
+                <select
+                  id="post-theme"
+                  value={theme}
+                  onChange={(event) => {
+                    if (isPostTheme(event.target.value)) setTheme(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_THEMES).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label htmlFor="post-content-width" className="block text-sm font-medium text-gray-700">
+                Article width
+                <select
+                  id="post-content-width"
+                  value={contentWidth}
+                  onChange={(event) => {
+                    if (isPostContentWidth(event.target.value)) setContentWidth(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_CONTENT_WIDTHS).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div className={`rounded-xl bg-gradient-to-br ${POST_THEMES[theme].hero} p-4`}>
+              <span className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${POST_THEMES[theme].badge}`}>
+                {POST_THEMES[theme].label}
+              </span>
+              <p className={`mt-3 text-lg font-bold ${POST_THEMES[theme].accent}`}>
+                Appearance preview
+              </p>
+              <p className="mt-1 text-sm text-gray-600">
+                {POST_CONTENT_WIDTHS[contentWidth].label}
+              </p>
+            </div>
+          </section>
+
+          <section className="space-y-4 rounded-2xl border border-gray-200 bg-gray-50 p-5">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div>
+                <h2 className="text-base font-semibold text-gray-900">Typography</h2>
+                <p className="mt-1 text-sm text-gray-500">
+                  Customize this post&apos;s reading experience. Preview updates as you edit.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  setFontSize("medium");
+                  setParagraphSpacing("comfortable");
+                  setLineHeight("comfortable");
+                  setFontFamily("sans");
+                }}
+                className="text-sm font-medium text-blue-700 hover:text-blue-900"
+              >
+                Reset typography
+              </button>
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2">
+              <label htmlFor="post-font-size" className="block text-sm font-medium text-gray-700">
+                Body font size
+                <select
+                  id="post-font-size"
+                  value={fontSize}
+                  onChange={(event) => {
+                    if (isPostFontSize(event.target.value)) setFontSize(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_TYPOGRAPHY.fontSize).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label htmlFor="post-paragraph-spacing" className="block text-sm font-medium text-gray-700">
+                Paragraph spacing
+                <select
+                  id="post-paragraph-spacing"
+                  value={paragraphSpacing}
+                  onChange={(event) => {
+                    if (isPostParagraphSpacing(event.target.value)) setParagraphSpacing(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_TYPOGRAPHY.paragraphSpacing).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label htmlFor="post-line-height" className="block text-sm font-medium text-gray-700">
+                Line height
+                <select
+                  id="post-line-height"
+                  value={lineHeight}
+                  onChange={(event) => {
+                    if (isPostLineHeight(event.target.value)) setLineHeight(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_TYPOGRAPHY.lineHeight).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+
+              <label htmlFor="post-font-family" className="block text-sm font-medium text-gray-700">
+                Font style
+                <select
+                  id="post-font-family"
+                  value={fontFamily}
+                  onChange={(event) => {
+                    if (isPostFontFamily(event.target.value)) setFontFamily(event.target.value);
+                  }}
+                  className="mt-1 w-full rounded-md border border-gray-300 bg-white p-2 text-sm"
+                >
+                  {Object.entries(POST_TYPOGRAPHY.fontFamily).map(([key, option]) => (
+                    <option key={key} value={key}>{option.label}</option>
+                  ))}
+                </select>
+              </label>
+            </div>
+
+            <div
+              aria-label="Typography preview"
+              className={`rounded-xl border border-gray-200 bg-white p-5 text-gray-700 ${POST_TYPOGRAPHY.fontSize[fontSize].className} ${POST_TYPOGRAPHY.fontFamily[fontFamily].className} ${POST_TYPOGRAPHY.paragraphSpacing[paragraphSpacing].className} ${POST_TYPOGRAPHY.lineHeight[lineHeight].className}`}
+            >
+              <h3 className="mb-3 text-lg font-bold text-gray-900">Preview your post text</h3>
+              <p className="mb-4">
+                This preview shows how the selected font style, size, line height, and paragraph
+                spacing will appear to readers.
+              </p>
+              <p>
+                These controls are saved with this post only. Other posts keep their own
+                typography settings.
+              </p>
+            </div>
+          </section>
+
           <section className="space-y-4 border-t border-gray-200 pt-6">
             <div>
               <h2 className="text-base font-semibold text-gray-900">Cover Photos</h2>
               <p className="mt-1 text-sm text-gray-500">
-                Add one main cover photo and up to four gallery photos.
+                Add one main cover photo and as many gallery photos as you need.
               </p>
             </div>
 
@@ -200,7 +394,7 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
 
             <div>
               <label htmlFor="post-gallery" className="block text-sm font-medium text-gray-700">
-                Gallery photos ({galleryImages.length + galleryFiles.length}/4)
+                Gallery photos ({galleryImages.length + galleryFiles.length})
               </label>
               {(galleryImages.length > 0 || galleryFiles.length > 0) && (
                 <div className="mt-3 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -245,9 +439,8 @@ export default function PostEditorForm({ postId, initialData }: PostEditorFormPr
                 type="file"
                 accept="image/*"
                 multiple
-                disabled={galleryImages.length >= MAX_GALLERY_IMAGES}
                 onChange={handleGallerySelection}
-                className="mt-3 block w-full text-sm text-gray-600 file:mr-4 file:rounded-md file:border-0 file:bg-gray-100 file:px-4 file:py-2 file:font-medium hover:file:bg-gray-200 disabled:opacity-50"
+                className="mt-3 block w-full text-sm text-gray-600 file:mr-4 file:rounded-md file:border-0 file:bg-gray-100 file:px-4 file:py-2 file:font-medium hover:file:bg-gray-200"
               />
             </div>
           </section>

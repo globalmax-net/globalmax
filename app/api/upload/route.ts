@@ -17,12 +17,6 @@ export async function POST(req: NextRequest) {
     if (!files || files.length === 0) {
       return NextResponse.json({ error: "No files received." }, { status: 400 });
     }
-    if (files.length > 5) {
-      return NextResponse.json(
-        { error: "A maximum of five photos can be uploaded for one post." },
-        { status: 400 }
-      );
-    }
 
     const uploadPromises = files.map(async (file) => {
       const bytes = await file.arrayBuffer();

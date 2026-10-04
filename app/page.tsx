@@ -12,9 +12,14 @@ import DirectorMessage from "@/components/DirectorMessage";
 import Objectives from "@/components/Objectives";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { getServices, getUpcomingPlatforms } from "@/lib/services";
+import { getSuccessStats } from "@/lib/success";
 
 export default async function Home() {
-  const [services, upcoming] = await Promise.all([getServices(), getUpcomingPlatforms()]);
+  const [services, upcoming, successStats] = await Promise.all([
+    getServices(),
+    getUpcomingPlatforms(),
+    getSuccessStats(),
+  ]);
 
   return (
     <main>
@@ -55,7 +60,7 @@ export default async function Home() {
       <Brand />
       <Hero />
       <DirectorMessage />
-      <Success />
+      <Success stats={successStats} />
       <Services services={services} upcoming={upcoming} />
       <VisionMission />
       <Objectives />

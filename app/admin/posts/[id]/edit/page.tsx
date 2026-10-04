@@ -25,6 +25,12 @@ export default async function EditPostPage({ params }: { params: Promise<{ id: s
         content: post.content,
         thumbnail: post.thumbnail,
         extraImages: post.extraImages ?? [],
+        theme: post.theme ?? "ocean",
+        contentWidth: post.contentWidth ?? "standard",
+        fontSize: post.fontSize ?? "medium",
+        paragraphSpacing: post.paragraphSpacing ?? "comfortable",
+        lineHeight: post.lineHeight ?? "comfortable",
+        fontFamily: post.fontFamily ?? "sans",
       }}
     />
   );

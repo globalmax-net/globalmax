@@ -1,6 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import Post from "@/lib/models/Post";
+import {
+  isPostContentWidth,
+  isPostFontFamily,
+  isPostFontSize,
+  isPostLineHeight,
+  isPostParagraphSpacing,
+  isPostTheme,
+} from "@/lib/post-style";
 
 export async function GET(
   req: NextRequest,
@@ -45,12 +53,22 @@ export async function PUT(
     const { id } = await params;
     const body = await req.json();
     const extraImages = Array.isArray(body.extraImages) ? body.extraImages : [];
+    const theme = body.theme === undefined ? "ocean" : body.theme;
+    const contentWidth = body.contentWidth === undefined ? "standard" : body.contentWidth;
+    const fontSize = body.fontSize === undefined ? "medium" : body.fontSize;
+    const paragraphSpacing = body.paragraphSpacing === undefined ? "comfortable" : body.paragraphSpacing;
+    const lineHeight = body.lineHeight === undefined ? "comfortable" : body.lineHeight;
+    const fontFamily = body.fontFamily === undefined ? "sans" : body.fontFamily;
 
-    if (extraImages.length > 4) {
-      return NextResponse.json(
-        { error: "A post can have up to four gallery photos." },
-        { status: 400 }
-      );
+    if (
+      !isPostTheme(theme) ||
+      !isPostContentWidth(contentWidth) ||
+      !isPostFontSize(fontSize) ||
+      !isPostParagraphSpacing(paragraphSpacing) ||
+      !isPostLineHeight(lineHeight) ||
+      !isPostFontFamily(fontFamily)
+    ) {
+      return NextResponse.json({ error: "Choose a supported post style." }, { status: 400 });
     }
 
     const post = await Post.findByIdAndUpdate(
@@ -61,6 +79,12 @@ export async function PUT(
         content: body.content,
         thumbnail: body.thumbnail,
         extraImages,
+        theme,
+        contentWidth,
+        fontSize,
+        paragraphSpacing,
+        lineHeight,
+        fontFamily,
       },
       { new: true, runValidators: true }
     );
