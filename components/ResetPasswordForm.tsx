@@ -41,7 +41,7 @@ export default function ResetPasswordForm({ token }: { token: string }) {
         </p>
         <h1 className="mt-3 text-center text-2xl font-bold text-gm-ink">Set a new password</h1>
         <p className="mt-2 text-center text-sm text-gm-ink/60">
-          Choose a password with at least 12 characters.
+          Choose a password with at least 8 characters.
         </p>
 
         {token ? (
@@ -53,7 +53,7 @@ export default function ResetPasswordForm({ token }: { token: string }) {
                 type="password"
                 autoComplete="new-password"
                 required
-                minLength={12}
+                minLength={8}
                 maxLength={128}
                 value={password}
                 onChange={(event) => setPassword(event.target.value)}

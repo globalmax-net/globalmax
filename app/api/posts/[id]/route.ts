@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import mongoose from "mongoose";
+import { getSession } from "@/lib/auth";
 import { connectDB } from "@/lib/db";
 import Post from "@/lib/models/Post";
+import { sanitizePostContent } from "@/lib/post-content";
+import { normalizePostMetadata } from "@/lib/post-metadata";
 import {
   isPostContentWidth,
   isPostFontFamily,
@@ -16,8 +20,19 @@ export async function GET(
 ) {
   try {
     await connectDB();
+    const session = await getSession();
     const { id } = await params;
-    const post = await Post.findById(id);
+    const post =
+      (await Post.findOne({
+        slug: id,
+        ...(session ? {} : { status: { $ne: "draft" } }),
+      })) ??
+      (mongoose.isValidObjectId(id)
+        ? await Post.findOne({
+            _id: id,
+            ...(session ? {} : { status: { $ne: "draft" } }),
+          })
+        : null);
     if (!post) {
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
@@ -32,6 +47,9 @@ export async function DELETE(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    if (!(await getSession())) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     await connectDB();
     const { id } = await params;
     const post = await Post.findByIdAndDelete(id);
@@ -49,10 +67,28 @@ export async function PUT(
   { params }: { params: Promise<{ id: string }> }
 ) {
   try {
+    if (!(await getSession())) {
+      return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    }
     await connectDB();
     const { id } = await params;
     const body = await req.json();
+    if (!body || typeof body !== "object" || Array.isArray(body)) {
+      return NextResponse.json({ error: "Invalid post data." }, { status: 400 });
+    }
     const extraImages = Array.isArray(body.extraImages) ? body.extraImages : [];
+    const metadata = normalizePostMetadata(body, "published");
+    if (
+      !metadata ||
+      typeof body.category !== "string" ||
+      !body.category.trim() ||
+      typeof body.thumbnail !== "string" ||
+      !body.thumbnail ||
+      typeof body.content !== "string" ||
+      !body.content.trim()
+    ) {
+      return NextResponse.json({ error: "Check the post title, slug, excerpt, and publishing status." }, { status: 400 });
+    }
     const theme = body.theme === undefined ? "ocean" : body.theme;
     const contentWidth = body.contentWidth === undefined ? "standard" : body.contentWidth;
     const fontSize = body.fontSize === undefined ? "medium" : body.fontSize;
@@ -74,11 +110,11 @@ export async function PUT(
     const post = await Post.findByIdAndUpdate(
       id,
       {
-        title: body.title,
-        category: body.category,
-        content: body.content,
+        ...metadata,
+        category: body.category.trim(),
+        content: sanitizePostContent(body.content),
         thumbnail: body.thumbnail,
-        extraImages,
+        extraImages: extraImages.filter((image: unknown): image is string => typeof image === "string"),
         theme,
         contentWidth,
         fontSize,
@@ -95,6 +131,9 @@ export async function PUT(
     return NextResponse.json(post, { status: 200 });
   } catch (error) {
     console.error("Failed to update post:", error);
+    if (typeof error === "object" && error !== null && "code" in error && error.code === 11000) {
+      return NextResponse.json({ error: "That post URL slug is already in use." }, { status: 409 });
+    }
     return NextResponse.json({ error: "Failed to update post" }, { status: 500 });
   }
 }

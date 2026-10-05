@@ -11,6 +11,7 @@ import Services from "@/components/ServicesGrid";
 import DirectorMessage from "@/components/DirectorMessage";
 import Objectives from "@/components/Objectives";
 import ScrollToTopButton from "@/components/ScrollToTopButton";
+import LatestPosts from "@/components/LatestPosts";
 import { getServices, getUpcomingPlatforms } from "@/lib/services";
 import { getSuccessStats } from "@/lib/success";
 
@@ -62,6 +63,7 @@ export default async function Home() {
       <DirectorMessage />
       <Success stats={successStats} />
       <Services services={services} upcoming={upcoming} />
+      <LatestPosts />
       <VisionMission />
       <Objectives />
       <ContactCTA />

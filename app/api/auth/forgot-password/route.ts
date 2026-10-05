@@ -1,6 +1,7 @@
 import { createHash, randomBytes } from "node:crypto";
 import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
+import { isValidEmailAddress } from "@/lib/email";
 import User from "@/lib/models/User";
 
 const resetTokenLifetimeMs = 15 * 60 * 1000;
@@ -39,7 +40,7 @@ export async function POST(req: NextRequest) {
   }
 
   const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
-  if (email.length > 254 || !/^\S+@\S+\.\S+$/.test(email)) {
+  if (!isValidEmailAddress(email)) {
     return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
   }
 

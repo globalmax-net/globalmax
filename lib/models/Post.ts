@@ -3,10 +3,15 @@ import { POST_CONTENT_WIDTHS, POST_THEMES, POST_TYPOGRAPHY } from "@/lib/post-st
 
 export interface IPost extends Document {
   title: string;
+  slug: string;
   category: string;
   content: string;
   thumbnail: string;
   extraImages: string[];
+  excerpt: string;
+  tags: string[];
+  status: "draft" | "published";
+  featured: boolean;
   theme: keyof typeof POST_THEMES;
   contentWidth: keyof typeof POST_CONTENT_WIDTHS;
   fontSize: keyof typeof POST_TYPOGRAPHY.fontSize;
@@ -24,6 +29,15 @@ const PostSchema = new Schema<IPost>(
       required: [true, "Please provide a post title"],
       trim: true,
     },
+    slug: {
+      type: String,
+      required: [true, "Please provide a post URL slug"],
+      trim: true,
+      lowercase: true,
+      maxlength: 120,
+      unique: true,
+      sparse: true,
+    },
     category: {
       type: String,
       required: [true, "Please provide a category"],
@@ -40,6 +54,24 @@ const PostSchema = new Schema<IPost>(
     extraImages: {
       type: [String],
       default: [],
+    },
+    excerpt: {
+      type: String,
+      default: "",
+      maxlength: 160,
+    },
+    tags: {
+      type: [String],
+      default: [],
+    },
+    status: {
+      type: String,
+      enum: ["draft", "published"],
+      default: "published",
+    },
+    featured: {
+      type: Boolean,
+      default: false,
     },
     theme: {
       type: String,

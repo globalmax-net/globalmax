@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connectDB } from "@/lib/db";
 import User from "@/lib/models/User";
 
-const minimumPasswordLength = 12;
+const minimumPasswordLength = 8;
 const maximumPasswordLength = 128;
 
 export async function POST(req: NextRequest) {
@@ -24,7 +24,7 @@ export async function POST(req: NextRequest) {
   }
   if (password.length < minimumPasswordLength || password.length > maximumPasswordLength) {
     return NextResponse.json(
-      { error: "Use a password between 12 and 128 characters." },
+      { error: "Use a password between 8 and 128 characters." },
       { status: 400 }
     );
   }

@@ -1,5 +1,6 @@
 import mongoose, { Schema, Model, HydratedDocument } from "mongoose";
 import bcrypt from "bcryptjs";
+import { isValidEmailAddress } from "@/lib/email";
 
 export interface IUser {
   email: string;
@@ -30,7 +31,7 @@ const UserSchema = new Schema<IUser, UserModel, IUserMethods>(
       unique: true,
       lowercase: true,
       trim: true,
-      match: [/^\S+@\S+\.\S+$/, "Invalid email"],
+      validate: { validator: isValidEmailAddress, message: "Invalid email" },
     },
     password: {
       type: String,

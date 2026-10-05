@@ -82,6 +82,14 @@ public/
 Drop your own images into `public/slides/` (or anywhere under `public/`) and reference them
 by path — no need to touch the component itself unless you want to change the default set.
 
+## Admin post editor
+
+The post editor supports formatted content, previews, excerpts, tags, URL slugs, featured
+posts, and draft or published status. Drafts stay out of public post listings and cannot
+be opened through the public post route. Published posts use their saved slug under
+`/post/<slug>`; older posts without a slug remain accessible by their existing ID.
+Formatted content and previews are sanitized before being shown.
+
 ## Run it
 
 ```bash
@@ -108,6 +116,17 @@ Configure these server-side environment variables to enable email recovery:
 For local development, `APP_URL` can use `http://localhost:3000`. Never commit
 provider keys or passwords; set them in `.env.local` locally and in the deployment
 platform's secret environment-variable settings in production.
+
+If the stored admin email cannot receive the reset link, use the one-time recovery
+command from a trusted machine configured to access the correct database. Set
+`ADMIN_EMAIL` to the new address and `ADMIN_PASSWORD` to a new 8–128 character
+password in `.env.local`, then run `npm run admin:recover`. The script sends a
+one-time code to that address and updates the sole admin account only after the
+code is entered. It requires `MONGODB_URI`, `RESEND_API_KEY`, and
+`RESEND_FROM_EMAIL`. Afterward, use **Forgot password?** with the new address if
+you need email-based recovery in the future. Email format checks alone cannot
+prove an inbox exists; this verification code confirms that the address can
+receive mail.
 
 Run the unit tests with:
 
