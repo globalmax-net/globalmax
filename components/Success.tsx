@@ -40,9 +40,9 @@ export default function Success({
   stats?: SuccessStat[];
 }) {
   return (
-    <section className=" border-white/60 shadow-md shrink-0 bg-gm-maroon pt-4 pb-4 sm:pt-6 sm:pb-6 md:pt-8 md:pb-8">
+    <section className=" border-white/60 shadow-md shrink-0 bg-gm-maroon py-4 sm:py-5 md:py-6">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10 pt-8 md:pt-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
           {stats.map((s) => (
             <div key={`${s.label}-${s.value}`}>
               <b className="font-display block text-[28px] sm:text-[36px] md:text-[44px] font-semibold tracking-tight text-white">

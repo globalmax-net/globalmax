@@ -14,7 +14,7 @@ export default async function LatestPosts() {
     .lean();
 
   return (
-    <section aria-labelledby="home-latest-posts" className="bg-gm-paper-2/60 py-16 sm:py-20">
+    <section aria-labelledby="home-latest-posts" className="bg-gm-paper-2/60 py-10 sm:py-14">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 sm:mb-10">
           <div>

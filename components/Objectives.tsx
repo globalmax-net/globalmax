@@ -67,11 +67,11 @@ const OBJECTIVES = [
 
 export default function Objectives() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
+    <section className="bg-white py-10 sm:py-14 lg:py-16">
       <div className="mx-auto max-w-[1180px] px-4 sm:px-6 md:px-10">
 
         {/* SECTION HEADER */}
-        <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
 
           <div>
             <div className="mb-4 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-gm-maroon">

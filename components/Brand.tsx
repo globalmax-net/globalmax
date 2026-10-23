@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Brand() {
   return (
-		<section id="brand" className="bg-white py-10 sm:py-16">
+		<section id="brand" className="bg-white py-8 sm:py-10">
 			<div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center">
 				<Image
 					src="/Partner.png"

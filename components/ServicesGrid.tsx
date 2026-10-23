@@ -5,18 +5,23 @@ import { SERVICES, UPCOMING, type Service, type UpcomingPlatform } from "./types
 export default function ServicesGrid({
   services = SERVICES,
   upcoming = UPCOMING,
+  compactSpacing = false,
 }: {
   services?: Service[];
   upcoming?: UpcomingPlatform[];
+  compactSpacing?: boolean;
 }) {
   const serviceCount = services.length === 6 ? "six" : String(services.length);
 
   return (
-    <section id="services" className="bg-white py-16 sm:py-20 md:py-28">
+    <section
+      id="services"
+      className={`bg-white ${compactSpacing ? "py-10 sm:py-14 md:py-16" : "py-16 sm:py-20 md:py-28"}`}
+    >
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
 
         {/* Section Header */}
-        <div className="max-w-[640px] mb-10 md:mb-14">
+        <div className={`max-w-[640px] ${compactSpacing ? "mb-8 md:mb-10" : "mb-10 md:mb-14"}`}>
           <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-maroon">
             <span className="h-[2px] w-8 bg-gm-maroon" />
             What we do
@@ -115,4 +120,3 @@ export default function ServicesGrid({
     </section>
   );
 }
-

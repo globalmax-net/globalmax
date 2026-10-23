@@ -21,7 +21,7 @@ export function HeroContent() {
 
   return (
     <>
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 pt-12 sm:pt-16 md:pt-24 pb-10 md:pb-14">
+      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 pt-8 sm:pt-12 md:pt-16 pb-8 md:pb-10">
 
         {/* LEFT CONTENT */}
         <div

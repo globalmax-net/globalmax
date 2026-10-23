@@ -2,16 +2,16 @@ import React from "react";
 
 export default function VisionMission() {
   return (
-      <section id="vision-mission" className="bg-white text-black pt-16 pb-4 sm:pt-20 sm:pb-6 md:pt-12 md:pb-6">
+      <section id="vision-mission" className="bg-white text-black py-10 sm:py-12 md:py-14">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
-        <div className="mb-12 text-center md:text-left">
-          <div className="mt-6 flex items-center justify-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-green md:justify-start">
+        <div className="mb-8 text-center md:text-left">
+          <div className="flex items-center justify-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-green md:justify-start">
             <span className="h-[2px] w-8 bg-gm-green" />
             MISSION • VISION
           </div>
         </div>
 
-        <div className="space-y-10">
+        <div className="space-y-6">
           <div className="border-l-2 border-gm-green pl-5 md:pl-6">
             <h3 className="font-display text-[22px] md:text-[28px] font-semibold text-gm-green">
               Our Vision

@@ -62,7 +62,7 @@ export default async function Home() {
       <Hero />
       <DirectorMessage />
       <Success stats={successStats} />
-      <Services services={services} upcoming={upcoming} />
+      <Services services={services} upcoming={upcoming} compactSpacing />
       <LatestPosts />
       <VisionMission />
       <Objectives />

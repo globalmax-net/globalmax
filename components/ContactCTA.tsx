@@ -4,7 +4,7 @@ export default function ContactCTA() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-gm-green py-16 text-black sm:py-20"
+      className="relative overflow-hidden bg-gm-green py-10 text-black sm:py-14"
     >
       {/* Decorative background */}
       <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-black/5" />
@@ -27,7 +27,7 @@ export default function ContactCTA() {
         </div>
 
         {/* Contact Cards */}
-        <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {/* Telephone */}
           <div className="group rounded-2xl border border-black/10 bg-white/15 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/25">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black text-xl text-white shadow-sm">

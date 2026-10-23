@@ -2,7 +2,7 @@ import React from "react";
 
 export default function DirectorMessage() {
   return (
-    <section id="director" className="bg-gm-paper-2 py-16 sm:py-24 md:py-32">
+    <section id="director" className="bg-gm-paper-2 py-10 sm:py-14 md:py-16">
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
         <div className="mt-6 mb-8 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-maroon">
           <span className="h-[2px] w-8 bg-gm-maroon" />
