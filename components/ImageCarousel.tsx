@@ -34,7 +34,7 @@ export default function ImageCarousel({
 
   return (
     <section className="relative w-full overflow-hidden bg-black">
-      <div className="relative h-[600px] sm:h-[680px] md:h-[760px] lg:h-[820px]">
+      <div className="relative h-[600px] sm:h-[680px] md:h-[760px] lg:h-[820px] 2xl:h-[900px]">
 
         {/* SLIDES */}
         {slides.map((slide, index) => {
@@ -74,10 +74,10 @@ export default function ImageCarousel({
 
               {/* CONTENT */}
               <div className="relative z-20 flex h-full items-center">
-                <div className="container mx-auto px-6 sm:px-10 lg:px-20">
+                <div className="gm-container px-4 sm:px-6 md:px-10">
 
                   <div
-                    className={`max-w-5xl transition-all duration-[1200ms] ease-out ${
+                    className={`max-w-5xl transition-all duration-[1200ms] ease-out xl:max-w-[1240px] 2xl:max-w-[1360px] ${
                       isActive
                         ? "translate-y-0 opacity-100"
                         : "translate-y-16 opacity-0"
@@ -97,7 +97,7 @@ export default function ImageCarousel({
 
                     {/* HUGE HERO TITLE */}
                     <h2
-                      className={`font-display text-[48px] font-semibold leading-[0.98] tracking-[-0.03em] text-white transition-all duration-[1200ms] delay-200 sm:text-[62px] md:text-[78px] lg:text-[94px] xl:text-[105px] ${
+                      className={`font-display text-[48px] font-semibold leading-[0.98] tracking-[-0.03em] text-white transition-all duration-[1200ms] delay-200 sm:text-[62px] md:text-[78px] lg:text-[94px] xl:text-[105px] 2xl:text-[120px] ${
                         isActive
                           ? "translate-y-0 opacity-100"
                           : "translate-y-12 opacity-0"
@@ -108,7 +108,7 @@ export default function ImageCarousel({
 
                     {/* DESCRIPTION */}
                     <p
-                      className={`mt-7 max-w-2xl text-base leading-relaxed text-white/75 transition-all duration-[1000ms] delay-500 sm:text-lg md:text-xl lg:text-2xl ${
+                      className={`mt-7 max-w-2xl text-base leading-relaxed text-white/75 transition-all duration-[1000ms] delay-500 sm:text-lg md:text-xl lg:text-2xl 2xl:max-w-3xl ${
                         isActive
                           ? "translate-y-0 opacity-100"
                           : "translate-y-8 opacity-0"

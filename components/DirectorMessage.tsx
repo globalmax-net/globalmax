@@ -3,13 +3,13 @@ import React from "react";
 export default function DirectorMessage() {
   return (
     <section id="director" className="bg-gm-paper-2 py-10 sm:py-14 md:py-16">
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
+      <div className="gm-container px-4 sm:px-6 md:px-10">
         <div className="mt-6 mb-8 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-maroon">
           <span className="h-[2px] w-8 bg-gm-maroon" />
           Director&apos;s message
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-12 xl:grid-cols-[260px_1fr] xl:gap-16 items-start">
           <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-center sm:text-left">
             <div className="w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-white/60 shadow-md shrink-0 bg-white">
               <img
@@ -27,13 +27,13 @@ export default function DirectorMessage() {
           </div>
 
           <div>
-            <p className="font-display text-xl sm:text-2xl md:text-[28px] leading-snug font-semibold tracking-tight mb-6 md:mb-8 text-[--gm-ink]">
+            <p className="font-display text-xl sm:text-2xl md:text-[28px] 2xl:text-[36px] leading-snug font-semibold tracking-tight mb-6 md:mb-8 text-[--gm-ink]">
               &ldquo;Business is not merely about providing a service — it is about creating
               <span className="text-gm-green"> opportunities, building trust</span>, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;
             </p>
 
-            <div className="space-y-5 text-[15.5px] leading-relaxed text-[--gm-text-soft] max-w-[680px]">
+            <div className="space-y-5 text-[15.5px] leading-relaxed text-[--gm-text-soft] max-w-[680px] 2xl:text-[17px]">
               <p>
                 Since our establishment in 2022, our Visa Consultancy and Education Guidance
                 services have supported more than 2000+ successful visa cases, while our Airline

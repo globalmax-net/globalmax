@@ -2,6 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .gm-container {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 1280px) {
+    .gm-container {
+      max-width: 1400px;
+    }
+  }
+
+  @media (min-width: 1536px) {
+    .gm-container {
+      max-width: 1680px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .gm-container {
+      max-width: 1800px;
+    }
+  }
+}
+
 :root {
   --gm-line: rgba(32, 27, 27, 0.12);
   --gm-line-inv: rgba(255, 255, 255, 0.16);

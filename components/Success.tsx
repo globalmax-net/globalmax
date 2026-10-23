@@ -41,7 +41,7 @@ export default function Success({
 }) {
   return (
     <section className=" border-white/60 shadow-md shrink-0 bg-gm-maroon py-4 sm:py-5 md:py-6">
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex justify-center">
+      <div className="gm-container px-4 sm:px-6 md:px-10 flex justify-center">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
           {stats.map((s) => (
             <div key={`${s.label}-${s.value}`}>

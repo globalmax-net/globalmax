@@ -15,13 +15,13 @@ export default async function LatestPosts() {
 
   return (
     <section aria-labelledby="home-latest-posts" className="bg-gm-paper-2/60 py-10 sm:py-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="gm-container px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4 sm:mb-10">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-gm-green">
               Global Max Journal
             </p>
-            <h2 id="home-latest-posts" className="mt-2 text-3xl font-bold tracking-tight text-gm-ink sm:text-4xl">
+            <h2 id="home-latest-posts" className="mt-2 text-3xl font-bold tracking-tight text-gm-ink sm:text-4xl 2xl:text-5xl">
               Latest articles
             </h2>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-gm-ink/65 sm:text-base">

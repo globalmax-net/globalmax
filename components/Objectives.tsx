@@ -68,7 +68,7 @@ const OBJECTIVES = [
 export default function Objectives() {
   return (
     <section className="bg-white py-10 sm:py-14 lg:py-16">
-      <div className="mx-auto max-w-[1180px] px-4 sm:px-6 md:px-10">
+      <div className="gm-container px-4 sm:px-6 md:px-10">
 
         {/* SECTION HEADER */}
         <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
@@ -79,7 +79,7 @@ export default function Objectives() {
               Our Objectives
             </div>
 
-            <h2 className="font-display text-[38px] font-semibold leading-tight tracking-tight text-gm-ink sm:text-[48px] md:text-[56px]">
+            <h2 className="font-display text-[38px] font-semibold leading-tight tracking-tight text-gm-ink sm:text-[48px] md:text-[56px] 2xl:text-[64px]">
               Building with
               <br />
               <span className="text-gm-maroon">
@@ -88,7 +88,7 @@ export default function Objectives() {
             </h2>
           </div>
 
-          <p className="max-w-xl text-[15px] leading-7 text-gray-600 sm:text-[16px]">
+          <p className="max-w-xl text-[15px] leading-7 text-gray-600 sm:text-[16px] 2xl:text-lg">
             Our objectives are focused on delivering trusted services,
             creating meaningful opportunities and building a connected
             ecosystem that serves our clients and communities locally and

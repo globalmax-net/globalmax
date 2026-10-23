@@ -18,7 +18,7 @@ export default function ServicesGrid({
       id="services"
       className={`bg-white ${compactSpacing ? "py-10 sm:py-14 md:py-16" : "py-16 sm:py-20 md:py-28"}`}
     >
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
+      <div className="gm-container px-4 sm:px-6 md:px-10">
 
         {/* Section Header */}
         <div className={`max-w-[640px] ${compactSpacing ? "mb-8 md:mb-10" : "mb-10 md:mb-14"}`}>
@@ -27,12 +27,12 @@ export default function ServicesGrid({
             What we do
           </div>
 
-          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] 2xl:text-[46px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
             One ecosystem,
             <span className="block text-gm-green">{serviceCount} core services.</span>
           </h2>
 
-          <p className="mt-4 text-base max-w-[520px] text-[--gm-text-soft]">
+          <p className="mt-4 text-base max-w-[520px] text-[--gm-text-soft] 2xl:text-lg">
             Global Max combines local knowledge with a global outlook to deliver
             professional, reliable, and client-focused solutions at every stage
             of life.
@@ -40,11 +40,11 @@ export default function ServicesGrid({
         </div>
 
         {/* Service Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 xl:gap-8">
           {services.map((service, i) => (
             <div
               key={service.code}
-              className="group bg-slate-200 rounded-2xl border border-[--gm-line] p-5 sm:p-8 min-h-[240px] sm:min-h-[280px] flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+              className="group bg-slate-200 rounded-2xl border border-[--gm-line] p-5 sm:p-8 xl:p-9 min-h-[240px] sm:min-h-[280px] xl:min-h-[300px] flex flex-col shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
             >
               {/* Number + Code */}
               <div className="flex items-center justify-between mb-6">
@@ -65,12 +65,12 @@ export default function ServicesGrid({
               />
 
               {/* Service Name */}
-              <h3 className="font-display text-xl font-semibold mb-2.5">
+              <h3 className="font-display text-xl 2xl:text-2xl font-semibold mb-2.5">
                 {service.name}
               </h3>
 
               {/* Description */}
-              <p className="text-[14.5px] leading-6 text-[--gm-text-soft]">
+              <p className="text-[14.5px] leading-6 text-[--gm-text-soft] 2xl:text-base">
                 {service.tagline}
               </p>
 

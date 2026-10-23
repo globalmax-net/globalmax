@@ -21,7 +21,7 @@ export function HeroContent() {
 
   return (
     <>
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 pt-8 sm:pt-12 md:pt-16 pb-8 md:pb-10">
+      <div className="gm-container px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 xl:gap-16 pt-8 sm:pt-12 md:pt-16 pb-8 md:pb-10">
 
         {/* LEFT CONTENT */}
         <div
@@ -43,7 +43,7 @@ export function HeroContent() {
 
           {/* HEADING */}
           <h1
-            className={`font-display text-[30px] sm:text-[40px] md:text-[54px] leading-[1.08] tracking-tight font-semibold max-w-[680px] transition-all duration-[1400ms] delay-200 ${
+            className={`font-display text-[30px] sm:text-[40px] md:text-[54px] xl:text-[64px] 2xl:text-[72px] leading-[1.08] tracking-tight font-semibold max-w-[680px] xl:max-w-[820px] transition-all duration-[1400ms] delay-200 ${
               loaded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-12 opacity-0"
@@ -61,7 +61,7 @@ export function HeroContent() {
 
           {/* DESCRIPTION */}
           <p
-            className={`mt-5 sm:mt-6 text-[15px] sm:text-[17px] leading-relaxed max-w-[560px] text-[--gm-text-soft-inv] transition-all duration-[1200ms] delay-500 ${
+            className={`mt-5 sm:mt-6 text-[15px] sm:text-[17px] xl:text-[19px] leading-relaxed max-w-[560px] xl:max-w-[700px] text-[--gm-text-soft-inv] transition-all duration-[1200ms] delay-500 ${
               loaded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
