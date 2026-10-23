@@ -32,7 +32,7 @@ export default function Header() {
       <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 flex items-center justify-between h-16 sm:h-[76px] gap-3">
         <Link href="/" className="flex items-center min-w-0 shrink-0" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/logo.jpeg" alt="Global Max Networks" className="h-9 sm:h-11 w-auto max-w-[180px] object-contain" />
+          <img src="/logo-transparent.png" alt="Global Max Networks" className="block h-auto w-[36vw] max-w-[140px] object-contain sm:w-[150px] md:w-[160px] xl:w-[180px]" />
         </Link>
 
         <nav className="hidden lg:flex gap-6 xl:gap-8">

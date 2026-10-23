@@ -39,7 +39,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 md:gap-12 pb-12 md:pb-16">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logo.jpeg" alt="Global Max Networks" className="h-11 w-auto object-contain bg-white p-1.5" />
+            <img src="/logo-footer.png" alt="Global Max Networks" className="block h-auto w-[150px] max-w-full object-contain sm:w-[176px]" />
             <p className="mt-4 text-[14.5px] max-w-[280px] text-[--gm-text-soft-inv]">
               Connecting people with opportunities, services, and global possibilities. Est. 2022,
               Sri Lanka.
