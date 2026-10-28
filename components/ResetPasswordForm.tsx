@@ -34,12 +34,12 @@ export default function ResetPasswordForm({ token }: { token: string }) {
   };
 
   return (
-    <main className="flex min-h-screen items-center justify-center bg-gm-paper-2 px-4 py-12">
-      <section className="w-full max-w-md rounded-xl border border-gm-paper-2 border-t-4 border-t-gm-maroon bg-white p-8 shadow-lg">
+    <main className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gm-paper-2 via-white to-gm-paper-2/70 px-4 py-12">
+      <section className="w-full max-w-md rounded-2xl border border-white border-t-4 border-t-gm-maroon bg-white p-6 shadow-xl sm:p-8">
         <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-gm-green">
           Global Max · Content management
         </p>
-        <h1 className="mt-3 text-center text-2xl font-bold text-gm-ink">Set a new password</h1>
+        <h1 className="mt-3 text-center font-display text-2xl font-semibold text-gm-ink">Set a new password</h1>
         <p className="mt-2 text-center text-sm text-gm-ink/60">
           Choose a password with at least 8 characters.
         </p>

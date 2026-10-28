@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 const OBJECTIVES = [
   {
@@ -65,7 +66,58 @@ const OBJECTIVES = [
   },
 ];
 
-export default function Objectives() {
+export default function Objectives({ preview = false }: { preview?: boolean }) {
+  const renderObjective = (
+    objective: (typeof OBJECTIVES)[number],
+    index: number,
+    partial = false,
+  ) => {
+    const accent = index % 2 === 0
+      ? {
+          stripe: "bg-gm-maroon",
+          badge: "bg-gm-maroon/10 text-gm-maroon",
+          line: "from-gm-maroon/40",
+          title: "group-hover:text-gm-maroon",
+        }
+      : {
+          stripe: "bg-gm-green",
+          badge: "bg-gm-green/10 text-gm-green",
+          line: "from-gm-green/40",
+          title: "group-hover:text-gm-green",
+        };
+
+    return (
+      <div
+        key={objective.number}
+        className={`group relative flex flex-col rounded-lg border border-[--gm-line] bg-white p-4 shadow-[0_3px_14px_rgba(32,27,27,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(32,27,27,0.08)] sm:p-5 ${
+          partial ? "h-[132px] overflow-hidden sm:h-[140px]" : ""
+        }`}
+      >
+        <span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] rounded-l-lg ${accent.stripe}`} />
+        <div className="mb-3 flex items-center gap-3">
+          <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2 font-mono text-[12px] font-semibold tracking-widest ${accent.badge}`}>
+            {objective.number}
+          </span>
+          <span className={`h-px flex-1 bg-gradient-to-r ${accent.line} to-transparent`} />
+        </div>
+
+        <h3 className={`mb-2 font-display text-[19px] font-semibold leading-snug text-gm-ink transition-colors sm:text-[21px] ${accent.title}`}>
+          {objective.title}
+        </h3>
+
+        <p className="max-w-[520px] text-base leading-7 text-[--gm-text-soft]">
+          {objective.description}
+        </p>
+        {partial && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-8 bg-gradient-to-b from-white/0 to-white"
+          />
+        )}
+      </div>
+    );
+  };
+
   return (
     <section className="bg-white py-8 sm:py-10 lg:py-14">
       <div className="gm-container">
@@ -98,55 +150,35 @@ export default function Objectives() {
 
         {/* OBJECTIVES GRID */}
         <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+          {OBJECTIVES.slice(0, preview ? 4 : undefined).map((objective, index) =>
+            renderObjective(objective, index),
+          )}
+        </div>
 
-        {OBJECTIVES.map((objective, index) => {
-          const accent = index % 2 === 0
-            ? {
-              stripe: "bg-gm-maroon",
-                badge: "bg-gm-maroon/10 text-gm-maroon",
-                line: "from-gm-maroon/40",
-                title: "group-hover:text-gm-maroon",
-              }
-            : {
-              stripe: "bg-gm-green",
-                badge: "bg-gm-green/10 text-gm-green",
-                line: "from-gm-green/40",
-                title: "group-hover:text-gm-green",
-              };
-
-          return (
-            <div
-              key={objective.number}
-              className="group relative flex flex-col rounded-lg border border-[--gm-line] bg-white p-4 shadow-[0_3px_14px_rgba(32,27,27,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(32,27,27,0.08)] sm:p-5"
-            >
-              <span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] rounded-l-lg ${accent.stripe}`} />
-              <div className="mb-3 flex items-center gap-3">
-                <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2 font-mono text-[12px] font-semibold tracking-widest ${accent.badge}`}>
-                  {objective.number}
-                </span>
-                <span className={`h-px flex-1 bg-gradient-to-r ${accent.line} to-transparent`} />
-              </div>
-
-              <h3 className={`mb-2 font-display text-[19px] font-semibold leading-snug text-gm-ink transition-colors sm:text-[21px] ${accent.title}`}>
-                {objective.title}
-              </h3>
-
-              <p className="max-w-[520px] text-base leading-7 text-[--gm-text-soft]">
-                {objective.description}
-              </p>
+        {preview ? (
+          <>
+            <div className="mt-3 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              {OBJECTIVES.slice(4, 6).map((objective, index) =>
+                renderObjective(objective, index + 4, true),
+              )}
             </div>
-          );
-        })}
-
-        </div>
-
-        {/* BOTTOM STATEMENT */}
-        <div className="mt-8 border-l-2 border-gm-maroon bg-gray-50 px-5 py-4 sm:px-7">
-          <p className="font-display text-[18px] font-medium leading-relaxed text-gm-ink sm:text-[20px]">
-            Creating trusted connections, meaningful opportunities and
-            sustainable growth — locally and globally.
-          </p>
-        </div>
+            <div className="mt-6 text-center">
+              <Link
+                href="/objectives"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-gm-maroon underline decoration-gm-maroon/40 underline-offset-4 transition-colors hover:text-gm-green hover:decoration-gm-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gm-green focus-visible:ring-offset-2"
+              >
+                See all objectives <span aria-hidden="true">→</span>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <div className="mt-8 border-l-2 border-gm-maroon bg-gray-50 px-5 py-4 sm:px-7">
+            <p className="font-display text-[18px] font-medium leading-relaxed text-gm-ink sm:text-[20px]">
+              Creating trusted connections, meaningful opportunities and
+              sustainable growth — locally and globally.
+            </p>
+          </div>
+        )}
 
       </div>
     </section>

@@ -32,7 +32,7 @@ async function readResponse<T>(response: Response, fallback: string): Promise<T>
 }
 
 const cardClass =
-  "rounded-3xl border border-gm-paper-2 bg-gm-paper shadow-sm";
+  "rounded-2xl border border-white bg-white shadow-sm";
 
 export default function AdminPage() {
   const [posts, setPosts] = useState<Post[]>([]);
@@ -85,14 +85,6 @@ export default function AdminPage() {
   useEffect(() => {
     void loadDashboard();
   }, [loadDashboard]);
-
-  const categoryCounts = useMemo(() => {
-    const counts = new Map<string, number>();
-    for (const post of posts) {
-      counts.set(post.category, (counts.get(post.category) ?? 0) + 1);
-    }
-    return Array.from(counts.entries()).sort((a, b) => b[1] - a[1]);
-  }, [posts]);
 
   const filteredPosts = useMemo(() => {
     const term = search.trim().toLowerCase();
@@ -167,14 +159,13 @@ export default function AdminPage() {
   };
 
   const navItems = [
-    { name: "Posts", description: "Write, style, and publish posts", href: "/admin/posts", count: posts.length, action: "Manage posts", tone: "bg-gm-paper-2 text-gm-maroon-dark" },
-    { name: "Services", description: "Update service cards and stats", href: "/admin/services", count: services.length, action: "Manage services", tone: "bg-green-50 text-gm-green-dark" },
-    { name: "Upcoming", description: "Edit coming-soon platforms", href: "/admin/upcoming", count: upcoming.length, action: "Manage upcoming", tone: "bg-gm-paper-2 text-gm-green-dark" },
-    { name: "Success metrics", description: "Edit homepage achievement figures", href: "#success-metrics", count: successStats.length, action: "Edit metrics", tone: "bg-red-50 text-gm-maroon" },
+    { name: "Services", description: "Service cards", href: "/admin/services", count: services.length, action: "Manage", tone: "text-gm-green-dark" },
+    { name: "Upcoming", description: "Coming-soon cards", href: "/admin/upcoming", count: upcoming.length, action: "Manage", tone: "text-gm-maroon-dark" },
+    { name: "Homepage metrics", description: "Success figures", href: "#success-metrics", count: successStats.length, action: "Edit", tone: "text-gm-green-dark" },
   ];
 
   return (
-    <main className="min-h-screen bg-gm-paper-2 text-gm-ink">
+    <main className="min-h-screen bg-gradient-to-br from-gm-paper-2 via-white to-gm-paper-2/70 text-gm-ink">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <header className="mb-7 overflow-hidden rounded-3xl bg-gm-maroon text-white shadow-sm">
           <div className="flex flex-col gap-6 px-6 py-7 sm:flex-row sm:items-center sm:justify-between sm:px-8">
@@ -182,7 +173,7 @@ export default function AdminPage() {
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-red-100">
                 Global Max · Content management
               </p>
-              <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
+              <h1 className="mt-2 font-display text-3xl font-semibold tracking-tight sm:text-4xl">
                 Admin dashboard
               </h1>
               <p className="mt-2 max-w-xl text-sm text-white/80">
@@ -231,38 +222,34 @@ export default function AdminPage() {
           </div>
         )}
 
-        <section aria-label="Content overview" className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        <section aria-label="Other content" className="mb-6 grid gap-3 md:grid-cols-3">
           {navItems.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`${cardClass} group p-5 transition hover:-translate-y-0.5 hover:border-gm-maroon/30 hover:shadow-md`}
+              className={`${cardClass} flex items-center justify-between gap-3 p-4 transition hover:border-gm-maroon/30 hover:shadow-md sm:p-5`}
             >
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <p className="text-sm font-medium text-gm-ink/60">{item.name}</p>
-                  <p className="mt-2 text-3xl font-bold tracking-tight text-gm-ink">
-                    {loading ? "—" : item.count}
-                  </p>
-                </div>
-                <span className={`rounded-full px-3 py-1 text-xs font-semibold ${item.tone}`}>
-                  {item.name === "Posts" ? "Published" : "On site"}
+              <div className="min-w-0">
+                <p className="font-semibold text-gm-ink">{item.name}</p>
+                <p className="mt-1 text-sm text-gm-ink/60">{item.description}</p>
+              </div>
+              <div className="flex shrink-0 items-center gap-3">
+                <span className="font-display text-2xl font-semibold text-gm-ink">
+                  {loading ? "—" : item.count}
+                </span>
+                <span className={`text-sm font-semibold ${item.tone}`}>
+                  {item.action} <span aria-hidden="true">→</span>
                 </span>
               </div>
-              <p className="mt-3 text-sm text-gm-ink/70">{item.description}</p>
-              <p className="mt-5 text-sm font-semibold text-gm-ink group-hover:text-gm-maroon">
-                {item.action} <span aria-hidden="true">→</span>
-              </p>
             </Link>
           ))}
         </section>
 
-        <section className="mt-6 grid gap-6 xl:grid-cols-[minmax(0,1.7fr)_minmax(280px,0.8fr)]">
+        <section>
           <div className={`${cardClass} overflow-hidden`}>
             <div className="flex flex-col gap-4 border-b border-gm-paper-2 p-5 sm:flex-row sm:items-end sm:justify-between sm:px-6">
               <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gm-green">Publishing</p>
-                <h2 className="mt-1 text-xl font-bold text-gm-ink">Recent posts</h2>
+                <h2 className="font-display text-xl font-semibold text-gm-ink">Recent posts</h2>
               </div>
               <div className="flex flex-wrap gap-3">
                 <label className="sr-only" htmlFor="dashboard-post-search">Search posts</label>
@@ -284,17 +271,12 @@ export default function AdminPage() {
             </div>
 
             {loading ? (
-              <p className="p-8 text-center text-sm text-gm-ink/60">Loading content overview...</p>
+              <p className="p-8 text-center text-sm text-gm-ink/60">Loading posts...</p>
             ) : filteredPosts.length === 0 ? (
               <div className="p-10 text-center">
                 <p className="font-semibold text-gm-ink">
                   {search ? "No posts match your search." : "No posts have been published yet."}
                 </p>
-                {!search && (
-                  <Link href="/admin/posts/create" className="mt-3 inline-block text-sm font-semibold text-gm-maroon hover:text-gm-maroon-dark">
-                    Create your first post
-                  </Link>
-                )}
               </div>
             ) : (
               <div className="overflow-x-auto">
@@ -334,53 +316,13 @@ export default function AdminPage() {
             )}
           </div>
 
-          <aside className="space-y-6">
-            <div className={`${cardClass} p-5`}>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gm-green">At a glance</p>
-              <h2 className="mt-1 text-xl font-bold text-gm-ink">Publishing insights</h2>
-              {categoryCounts.length ? (
-                <ul className="mt-4 space-y-3">
-                  {categoryCounts.slice(0, 4).map(([category, count]) => (
-                    <li key={category} className="flex items-center justify-between gap-3 text-sm">
-                      <span className="truncate text-gm-ink/80">{category}</span>
-                      <span className="shrink-0 rounded-full bg-gm-paper-2 px-2.5 py-1 font-semibold text-gm-ink">
-                        {count} {count === 1 ? "post" : "posts"}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                <p className="mt-4 text-sm text-gm-ink/60">Category insights appear after posts are published.</p>
-              )}
-              {posts.length > 0 && (
-                <p className="mt-4 border-t border-gm-paper-2 pt-4 text-sm text-gm-ink/60">
-                  {posts.length} total {posts.length === 1 ? "post" : "posts"} across {categoryCounts.length} {categoryCounts.length === 1 ? "category" : "categories"}.
-                </p>
-              )}
-            </div>
-
-            <div className={`${cardClass} p-5`}>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gm-green">Shortcuts</p>
-              <div className="mt-4 grid gap-2">
-                <Link href="/admin/services" className="flex items-center justify-between rounded-xl bg-gm-paper-2 px-4 py-3 text-sm font-semibold text-gm-ink transition hover:bg-red-50 hover:text-gm-maroon">
-                  Manage service cards <span aria-hidden="true">→</span>
-                </Link>
-                <Link href="/admin/upcoming" className="flex items-center justify-between rounded-xl bg-gm-paper-2 px-4 py-3 text-sm font-semibold text-gm-ink transition hover:bg-green-50 hover:text-gm-green-dark">
-                  Manage upcoming platforms <span aria-hidden="true">→</span>
-                </Link>
-                <Link href="#success-metrics" className="flex items-center justify-between rounded-xl bg-gm-paper-2 px-4 py-3 text-sm font-semibold text-gm-ink transition hover:bg-red-50 hover:text-gm-maroon">
-                  Update homepage metrics <span aria-hidden="true">↓</span>
-                </Link>
-              </div>
-            </div>
-          </aside>
         </section>
 
         <section id="success-metrics" className={`${cardClass} mt-6 p-5 sm:p-6`}>
           <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gm-maroon">Homepage content</p>
-              <h2 className="mt-1 text-xl font-bold text-gm-ink">Success metrics</h2>
+              <h2 className="mt-1 font-display text-xl font-semibold text-gm-ink">Success metrics</h2>
               <p className="mt-1 text-sm text-gm-ink/60">These figures are displayed in the homepage success section.</p>
             </div>
           </div>

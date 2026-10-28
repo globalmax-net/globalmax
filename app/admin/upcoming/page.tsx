@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import LogoutButton from "@/components/LogoutButton";
+import AdminPageHeader from "@/components/AdminPageHeader";
 
 interface ManagedPlatform {
   _id: string;
@@ -81,20 +82,17 @@ export default function AdminUpcomingPage() {
   };
 
   return (
-    <main className="min-h-screen bg-gm-paper-2 p-4 text-gm-ink sm:p-8">
+    <main className="min-h-screen bg-gradient-to-br from-gm-paper-2 via-white to-gm-paper-2/70 p-4 text-gm-ink sm:p-6 lg:p-8">
       <div className="mx-auto max-w-7xl">
-        <header className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-gm-paper-2 bg-white p-4 shadow-sm">
-          <h1 className="text-2xl font-bold text-gm-ink">Manage Upcoming</h1>
-          <div className="flex items-center gap-4">
-            <Link href="/admin" className="text-sm font-medium text-gm-green-dark hover:text-gm-maroon">Admin</Link>
-            <LogoutButton />
-          </div>
-        </header>
+        <AdminPageHeader title="Coming soon" description="Manage the upcoming platforms displayed on your website.">
+          <Link href="/admin" className="rounded-lg border border-gm-paper-2 bg-white px-4 py-2.5 text-sm font-semibold text-gm-ink/75 transition-colors hover:border-gm-green hover:text-gm-green-dark">Dashboard</Link>
+          <LogoutButton />
+        </AdminPageHeader>
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_360px]">
-          <section className="overflow-hidden rounded-lg border border-gm-paper-2 bg-white shadow-sm">
-            <div className="border-b border-gm-paper-2 px-5 py-4">
-              <h2 className="font-semibold text-gm-ink">Coming soon cards</h2>
+        <div className="grid items-start gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
+          <section className="overflow-hidden rounded-2xl border border-white bg-white shadow-sm">
+            <div className="border-b border-gm-paper-2/80 px-5 py-4 sm:px-6">
+              <h2 className="font-display text-lg font-semibold text-gm-ink">Coming soon cards</h2>
             </div>
             <div className="divide-y divide-gm-paper-2">
               {platforms.map((platform) => (
@@ -113,8 +111,8 @@ export default function AdminUpcomingPage() {
             </div>
           </section>
 
-          <form onSubmit={savePlatform} className="h-fit space-y-4 rounded-lg border border-gm-paper-2 bg-white p-5 shadow-sm">
-            <h2 className="font-semibold text-gm-ink">{editingId ? "Edit upcoming item" : "Add an upcoming item"}</h2>
+          <form onSubmit={savePlatform} className="space-y-4 rounded-2xl border border-white bg-white p-5 shadow-sm sm:p-6">
+            <h2 className="font-display text-lg font-semibold text-gm-ink">{editingId ? "Edit upcoming item" : "Add an upcoming item"}</h2>
             <label className="block text-sm font-medium text-gm-ink/80">
               Name
               <input

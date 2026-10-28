@@ -27,7 +27,7 @@ export default function ContactCTA() {
         </div>
 
         {/* Contact Cards */}
-        <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4 xl:max-w-[1400px] 2xl:max-w-[1520px]">
+        <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:max-w-[1400px] 2xl:max-w-[1520px]">
           {/* Telephone */}
           <div className="group rounded-2xl border border-black/10 bg-white/15 p-6 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/25">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-black text-xl text-white shadow-sm">

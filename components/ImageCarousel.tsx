@@ -34,7 +34,7 @@ export default function ImageCarousel({
 
   return (
     <section className="relative w-full overflow-hidden bg-black">
-      <div className="relative h-[600px] sm:h-[680px] md:h-[760px] lg:h-[820px] 2xl:h-[900px]">
+      <div className="relative h-[min(600px,calc(100svh_-_4rem))] min-h-[520px] sm:h-[min(680px,calc(100svh_-_4.75rem))] sm:min-h-[600px] md:h-[760px] lg:h-[820px] 2xl:h-[900px]">
 
         {/* SLIDES */}
         {slides.map((slide, index) => {
@@ -97,7 +97,7 @@ export default function ImageCarousel({
 
                     {/* HUGE HERO TITLE */}
                     <h2
-                      className={`font-display text-[42px] font-semibold leading-[0.98] tracking-[-0.03em] text-white transition-all duration-[1200ms] delay-200 sm:text-[54px] md:text-[66px] lg:text-[76px] xl:text-[84px] 2xl:text-[92px] ${
+                      className={`font-display text-[clamp(2rem,8vw,2.625rem)] font-semibold leading-[0.98] tracking-[-0.03em] text-white transition-all duration-[1200ms] delay-200 sm:text-[54px] md:text-[66px] lg:text-[76px] xl:text-[84px] 2xl:text-[92px] ${
                         isActive
                           ? "translate-y-0 opacity-100"
                           : "translate-y-12 opacity-0"
@@ -160,7 +160,7 @@ export default function ImageCarousel({
               key={index}
               onClick={() => setCurrent(index)}
               aria-label={`Go to slide ${index + 1}`}
-              className="group relative h-6"
+              className="group relative flex h-11 items-center"
             >
               <span
                 className={`block h-[2px] transition-all duration-500 ${

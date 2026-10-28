@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import LogoutButton from "@/components/LogoutButton";
 import { SuccessBanner } from "@/components/Success";
+import AdminPageHeader from "@/components/AdminPageHeader";
 
 interface Post {
   _id: string;
@@ -61,27 +62,30 @@ function AdminPostsContent() {
   }, [router, searchParams]);
 
   return (
-    <div className="min-h-screen bg-gm-paper-2 p-4 sm:p-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-8 flex flex-wrap items-center justify-between gap-4 rounded-lg border border-gm-paper-2 bg-white p-4 shadow-sm">
-          <h1 className="text-2xl font-bold text-gm-ink">Manage Posts</h1>
-          <div className="flex gap-4">
+    <main className="min-h-screen bg-gradient-to-br from-gm-paper-2 via-white to-gm-paper-2/70 p-4 text-gm-ink sm:p-6 lg:p-8">
+      <div className="mx-auto max-w-7xl">
+        <AdminPageHeader title="Posts" description="Create, edit, and organize the posts on your website.">
             <Link
               href="/admin/posts/create"
-              className="rounded-md bg-gm-maroon px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-gm-maroon-dark"
+              className="rounded-lg bg-gm-maroon px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-gm-maroon-dark"
             >
               Create New Post
             </Link>
+            <Link
+              href="/admin"
+              className="rounded-lg border border-gm-paper-2 bg-white px-4 py-2.5 text-sm font-semibold text-gm-ink/75 transition-colors hover:border-gm-green hover:text-gm-green-dark"
+            >
+              Dashboard
+            </Link>
             <LogoutButton />
-          </div>
-        </div>
+        </AdminPageHeader>
 
         {notice && <SuccessBanner title="Success" message={notice} />}
 
-        <div className="overflow-hidden rounded-lg border border-gm-paper-2 bg-white shadow-sm">
+        <section aria-label="Posts list" className="overflow-hidden rounded-2xl border border-white bg-white shadow-sm">
           <div className="overflow-x-auto">
-          <table className="min-w-full divide-y divide-gm-paper-2">
-            <thead className="bg-gm-paper-2">
+          <table className="min-w-full divide-y divide-gm-paper-2/80">
+            <thead className="bg-gm-paper-2/60">
               <tr>
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gm-ink/60">Title</th>
                 <th className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gm-ink/60">Category</th>
@@ -129,8 +133,8 @@ function AdminPostsContent() {
             </tbody>
           </table>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </main>
   );
 }

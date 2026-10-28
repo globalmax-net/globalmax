@@ -50,9 +50,9 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/#contact"
-            className="hidden sm:inline-flex font-mono text-sm md:text-[15px] uppercase tracking-wide border border-gm-green text-gm-maroon px-3 md:px-[18px] py-2 md:py-[9px] transition hover:bg-gm-maroon hover:text-white whitespace-nowrap"
+            className="hidden sm:inline-flex items-center justify-center rounded-sm bg-gm-maroon px-5 py-2.5 font-body text-sm font-semibold tracking-wide text-white transition-colors hover:bg-gm-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gm-maroon focus-visible:ring-offset-2 md:text-[15px]"
           >
-            Get in Touch
+            Get in touch
           </Link>
 
           <button
@@ -88,9 +88,9 @@ export default function Header() {
           ))}
           <Link
             href="/#contact"
-            className="mt-3 font-mono text-[13px] uppercase tracking-wide border border-gm-maroon text-gm-maroon px-4 py-3 text-center hover:bg-gm-maroon hover:text-white transition"
+            className="mt-3 inline-flex items-center justify-center rounded-sm bg-gm-maroon px-5 py-3 font-body text-sm font-semibold tracking-wide text-white transition-colors hover:bg-gm-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gm-maroon focus-visible:ring-offset-2"
           >
-            Get in Touch
+            Get in touch
           </Link>
         </nav>
       </div>

@@ -65,7 +65,7 @@ export default async function Home() {
       <Services services={services} upcoming={upcoming} compactSpacing />
       <LatestPosts />
       <VisionMission />
-      <Objectives />
+      <Objectives preview />
       <ContactCTA />
       <Footer />
       <ScrollToTopButton />

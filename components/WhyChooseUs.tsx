@@ -47,7 +47,7 @@ export default function WhyChooseUs() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 sm:gap-7 lg:grid-cols-3 lg:gap-8">
           {REASONS.map((reason, i) => (
             <article key={reason.title} className={`pt-5 border-t-2 ${i % 2 === 0 ? "border-gm-maroon" : "border-gm-green"}`}>
               <h4 className="font-display text-[19px] font-semibold leading-snug mb-3">{reason.title}</h4>

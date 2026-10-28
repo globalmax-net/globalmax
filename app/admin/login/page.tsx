@@ -39,11 +39,11 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gm-paper-2 px-4 py-12 sm:px-6 lg:px-8">
-      <div className="w-full max-w-md space-y-8 rounded-xl border border-gm-paper-2 border-t-4 border-t-gm-maroon bg-white p-10 shadow-lg">
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-gm-paper-2 via-white to-gm-paper-2/70 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="w-full max-w-md space-y-8 rounded-2xl border border-white border-t-4 border-t-gm-maroon bg-white p-6 shadow-xl sm:p-10">
         <div>
           <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-gm-green">Global Max · Content management</p>
-          <h2 className="mt-3 text-center text-3xl font-extrabold tracking-tight text-gm-ink">
+          <h2 className="mt-3 text-center font-display text-3xl font-semibold tracking-tight text-gm-ink">
             Admin Login
           </h2>
           <p className="mt-2 text-center text-sm text-gm-ink/60">

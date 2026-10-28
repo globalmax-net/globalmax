@@ -22,13 +22,13 @@ export default function DirectorMessage({ preview = false }: { preview?: boolean
             <div className="min-w-0 md:mt-5">
               <div className="font-display text-xl font-semibold md:text-2xl">S. Surenthiran</div>
               <div className="mt-1 font-mono text-[11px] uppercase tracking-wide text-[--gm-text-soft] md:text-[12px]">
-                Founder, Owner &amp; Director
+                Director, Owner &amp; Founder
               </div>
             </div>
           </div>
 
           <div className="max-w-[900px]">
-            <blockquote className="mb-6 border-l-2 border-gm-green pl-5 font-display text-xl font-semibold leading-snug tracking-tight text-[--gm-ink] sm:text-2xl md:mb-8 md:pl-6 md:text-[28px] 2xl:text-[32px]">
+            <blockquote className="mb-6 border-l-2 border-gm-green pl-5 font-body text-xl font-semibold leading-[1.4] tracking-tight text-[--gm-ink] sm:text-2xl md:mb-8 md:pl-6 md:text-[28px] 2xl:text-[32px]">
               &ldquo;Business is not merely about providing a service — it is about creating
               <span className="text-gm-green"> opportunities, building trust</span>, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;
