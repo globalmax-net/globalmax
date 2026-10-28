@@ -3,17 +3,19 @@ import Image from "next/image";
 
 export default function Brand() {
   return (
-		<section id="brand" className="bg-white py-8 sm:py-10">
-			<div className="gm-container px-4 sm:px-6 md:px-10 flex justify-center">
-				<Image
-					src="/Partner.png"
-					alt="We are your partner"
-					width={1600}
-					height={700}
-					sizes="(max-width: 1100px) 100vw, 1180px"
-					className="h-auto w-full max-w-[600px] shadow-lg rounded-lg xl:max-w-[760px] 2xl:max-w-[900px]"
-				/>
-			</div>
-		</section>
-	);
+    <section id="brand" className="bg-white py-2">
+      <div className="gm-container flex justify-center">
+        <div className="w-full max-w-[920px] rounded-xl border border-gm-maroon/20 bg-white p-1 shadow-[0_8px_24px_rgba(32,27,27,0.10)]">
+          <Image
+            src="/brand-partner-transparent.png"
+            alt="We are your partner"
+            width={1606}
+            height={544}
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 85vw, 900px"
+            className="block h-auto w-full max-w-[900px] rounded-lg"
+          />
+        </div>
+      </div>
+    </section>
+  );
 }

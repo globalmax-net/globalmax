@@ -67,11 +67,11 @@ const OBJECTIVES = [
 
 export default function Objectives() {
   return (
-    <section className="bg-white py-10 sm:py-14 lg:py-16">
-      <div className="gm-container px-4 sm:px-6 md:px-10">
+    <section className="bg-white py-8 sm:py-10 lg:py-14">
+      <div className="gm-container">
 
         {/* SECTION HEADER */}
-        <div className="mb-8 grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end">
+        <div className="mb-7 grid grid-cols-1 gap-5 md:grid-cols-[0.8fr_1.2fr] md:items-end">
 
           <div>
             <div className="mb-4 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.25em] text-gm-maroon">
@@ -79,7 +79,7 @@ export default function Objectives() {
               Our Objectives
             </div>
 
-            <h2 className="font-display text-[38px] font-semibold leading-tight tracking-tight text-gm-ink sm:text-[48px] md:text-[56px] 2xl:text-[64px]">
+            <h2 className="font-display text-[36px] font-semibold leading-tight tracking-tight text-gm-ink sm:text-[44px] md:text-[52px] 2xl:text-[60px]">
               Building with
               <br />
               <span className="text-gm-maroon">
@@ -88,7 +88,7 @@ export default function Objectives() {
             </h2>
           </div>
 
-          <p className="max-w-xl text-[15px] leading-7 text-gray-600 sm:text-[16px] 2xl:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-gray-600 2xl:text-lg">
             Our objectives are focused on delivering trusted services,
             creating meaningful opportunities and building a connected
             ecosystem that serves our clients and communities locally and
@@ -97,41 +97,51 @@ export default function Objectives() {
         </div>
 
         {/* OBJECTIVES GRID */}
-        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+        <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
 
-          {OBJECTIVES.map((objective) => (
+        {OBJECTIVES.map((objective, index) => {
+          const accent = index % 2 === 0
+            ? {
+              stripe: "bg-gm-maroon",
+                badge: "bg-gm-maroon/10 text-gm-maroon",
+                line: "from-gm-maroon/40",
+                title: "group-hover:text-gm-maroon",
+              }
+            : {
+              stripe: "bg-gm-green",
+                badge: "bg-gm-green/10 text-gm-green",
+                line: "from-gm-green/40",
+                title: "group-hover:text-gm-green",
+              };
+
+          return (
             <div
               key={objective.number}
-              className="group relative border border-gray-200 bg-white p-6 sm:p-7"
+              className="group relative flex flex-col rounded-lg border border-[--gm-line] bg-white p-4 shadow-[0_3px_14px_rgba(32,27,27,0.035)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(32,27,27,0.08)] sm:p-5"
             >
-              {/* TOP LINE */}
-              <div className="mb-6 flex items-start justify-between">
-                <span className="font-mono text-[12px] tracking-widest text-gm-maroon">
+              <span aria-hidden="true" className={`absolute inset-y-0 left-0 w-[3px] rounded-l-lg ${accent.stripe}`} />
+              <div className="mb-3 flex items-center gap-3">
+                <span className={`inline-flex h-8 min-w-8 items-center justify-center rounded-full px-2 font-mono text-[12px] font-semibold tracking-widest ${accent.badge}`}>
                   {objective.number}
                 </span>
-
-                <span className="h-2 w-2 bg-gm-maroon" />
+                <span className={`h-px flex-1 bg-gradient-to-r ${accent.line} to-transparent`} />
               </div>
 
-              {/* TITLE */}
-              <h3 className="mb-3 font-display text-[20px] font-semibold leading-snug text-gm-ink sm:text-[22px]">
+              <h3 className={`mb-2 font-display text-[19px] font-semibold leading-snug text-gm-ink transition-colors sm:text-[21px] ${accent.title}`}>
                 {objective.title}
               </h3>
 
-              {/* DESCRIPTION */}
-              <p className="max-w-[520px] text-[14px] leading-6 text-gray-600 sm:text-[15px]">
+              <p className="max-w-[520px] text-base leading-7 text-[--gm-text-soft]">
                 {objective.description}
               </p>
-
-              {/* BOTTOM ACCENT */}
-              <div className="mt-6 h-px w-full bg-gray-100" />
             </div>
-          ))}
+          );
+        })}
 
         </div>
 
         {/* BOTTOM STATEMENT */}
-        <div className="mt-10 border-l-2 border-gm-maroon bg-gray-50 px-6 py-5 sm:px-8">
+        <div className="mt-8 border-l-2 border-gm-maroon bg-gray-50 px-5 py-4 sm:px-7">
           <p className="font-display text-[18px] font-medium leading-relaxed text-gm-ink sm:text-[20px]">
             Creating trusted connections, meaningful opportunities and
             sustainable growth — locally and globally.

@@ -167,7 +167,7 @@ export default function AdminPage() {
   };
 
   const navItems = [
-    { name: "Posts", description: "Write, style, and publish articles", href: "/admin/posts", count: posts.length, action: "Manage posts", tone: "bg-gm-paper-2 text-gm-maroon-dark" },
+    { name: "Posts", description: "Write, style, and publish posts", href: "/admin/posts", count: posts.length, action: "Manage posts", tone: "bg-gm-paper-2 text-gm-maroon-dark" },
     { name: "Services", description: "Update service cards and stats", href: "/admin/services", count: services.length, action: "Manage services", tone: "bg-green-50 text-gm-green-dark" },
     { name: "Upcoming", description: "Edit coming-soon platforms", href: "/admin/upcoming", count: upcoming.length, action: "Manage upcoming", tone: "bg-gm-paper-2 text-gm-green-dark" },
     { name: "Success metrics", description: "Edit homepage achievement figures", href: "#success-metrics", count: successStats.length, action: "Edit metrics", tone: "bg-red-50 text-gm-maroon" },

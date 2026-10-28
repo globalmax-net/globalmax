@@ -16,23 +16,25 @@ export default function ServicesGrid({
   return (
     <section
       id="services"
-      className={`bg-white ${compactSpacing ? "py-10 sm:py-14 md:py-16" : "py-16 sm:py-20 md:py-28"}`}
+      className={`bg-white ${compactSpacing ? "py-8 sm:py-10 lg:py-14" : "py-10 sm:py-14 lg:py-16"}`}
     >
-      <div className="gm-container px-4 sm:px-6 md:px-10">
+      <div className="gm-container">
 
         {/* Section Header */}
-        <div className={`max-w-[640px] ${compactSpacing ? "mb-8 md:mb-10" : "mb-10 md:mb-14"}`}>
-          <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-maroon">
-            <span className="h-[2px] w-8 bg-gm-maroon" />
-            What we do
+        <div className={`grid grid-cols-1 gap-6 md:grid-cols-[0.8fr_1.2fr] md:items-end ${compactSpacing ? "mb-8 md:mb-10" : "mb-10 md:mb-14"}`}>
+          <div>
+            <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-maroon">
+              <span className="h-[2px] w-8 bg-gm-maroon" />
+              What we do
+            </div>
+
+            <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] 2xl:text-[46px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+              One ecosystem,
+              <span className="block text-gm-green">{serviceCount} core services.</span>
+            </h2>
           </div>
 
-          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] 2xl:text-[46px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
-            One ecosystem,
-            <span className="block text-gm-green">{serviceCount} core services.</span>
-          </h2>
-
-          <p className="mt-4 text-base max-w-[520px] text-[--gm-text-soft] 2xl:text-lg">
+          <p className="max-w-xl text-base leading-relaxed text-gray-600 2xl:text-lg">
             Global Max combines local knowledge with a global outlook to deliver
             professional, reliable, and client-focused solutions at every stage
             of life.
@@ -70,7 +72,7 @@ export default function ServicesGrid({
               </h3>
 
               {/* Description */}
-              <p className="text-[14.5px] leading-6 text-[--gm-text-soft] 2xl:text-base">
+              <p className="text-base leading-7 text-[--gm-text-soft] 2xl:text-lg">
                 {service.tagline}
               </p>
 
@@ -81,7 +83,7 @@ export default function ServicesGrid({
                     {service.statValue}
                   </b>
 
-                  <span className="text-[12.5px] text-[--gm-text-soft]">
+                  <span className="text-sm text-[--gm-text-soft]">
                     {service.statLabel}
                   </span>
                 </div>
@@ -108,7 +110,7 @@ export default function ServicesGrid({
                   {item.name}
                 </h4>
 
-                <p className="text-[14px] leading-6 text-[--gm-text-soft]">
+                <p className="text-base leading-7 text-[--gm-text-soft]">
                   {item.description}
                 </p>
               </div>

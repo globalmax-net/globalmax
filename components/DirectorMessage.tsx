@@ -1,57 +1,73 @@
 import React from "react";
+import Link from "next/link";
 
-export default function DirectorMessage() {
+export default function DirectorMessage({ preview = false }: { preview?: boolean }) {
   return (
-    <section id="director" className="bg-gm-paper-2 py-10 sm:py-14 md:py-16">
-      <div className="gm-container px-4 sm:px-6 md:px-10">
-        <div className="mt-6 mb-8 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-maroon">
+    <section id="director" className="bg-gm-paper-2 py-8 sm:py-10 lg:py-14">
+      <div className="gm-container">
+        <div className="mb-8 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-[0.22em] text-gm-maroon">
           <span className="h-[2px] w-8 bg-gm-maroon" />
           Director&apos;s message
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-10 md:gap-12 xl:grid-cols-[260px_1fr] xl:gap-16 items-start">
-          <div className="flex flex-col sm:flex-row md:flex-col items-center md:items-start gap-4 md:gap-0 text-center sm:text-left">
-            <div className="w-[110px] h-[110px] md:w-[150px] md:h-[150px] rounded-full overflow-hidden border-2 border-white/60 shadow-md shrink-0 bg-white">
+        <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-[200px_minmax(0,1fr)] md:gap-10 xl:grid-cols-[240px_minmax(0,1fr)] xl:gap-14">
+          <div className="flex items-center gap-4 text-left md:flex-col md:items-start md:gap-0">
+            <div className="h-[88px] w-[88px] shrink-0 overflow-hidden rounded-full border-2 border-white/60 bg-white shadow-md md:h-[128px] md:w-[128px]">
               <img
                 src="/profile.jpg"
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
             </div>
-            <div className="md:mt-5 text-center md:text-left">
-              <div className="font-display text-2xl font-semibold">S. Surenthiran</div>
-              <div className="font-mono text-[12px] uppercase tracking-wide text-[--gm-text-soft] mt-1">
+            <div className="min-w-0 md:mt-5">
+              <div className="font-display text-xl font-semibold md:text-2xl">S. Surenthiran</div>
+              <div className="mt-1 font-mono text-[11px] uppercase tracking-wide text-[--gm-text-soft] md:text-[12px]">
                 Founder, Owner &amp; Director
               </div>
             </div>
           </div>
 
-          <div>
-            <p className="font-display text-xl sm:text-2xl md:text-[28px] 2xl:text-[36px] leading-snug font-semibold tracking-tight mb-6 md:mb-8 text-[--gm-ink]">
+          <div className="max-w-[900px]">
+            <blockquote className="mb-6 border-l-2 border-gm-green pl-5 font-display text-xl font-semibold leading-snug tracking-tight text-[--gm-ink] sm:text-2xl md:mb-8 md:pl-6 md:text-[28px] 2xl:text-[32px]">
               &ldquo;Business is not merely about providing a service — it is about creating
               <span className="text-gm-green"> opportunities, building trust</span>, and becoming a reliable partner in people&apos;s
               journeys.&rdquo;
-            </p>
+            </blockquote>
 
-            <div className="space-y-5 text-[15.5px] leading-relaxed text-[--gm-text-soft] max-w-[680px] 2xl:text-[17px]">
+            <div className="max-w-[900px] space-y-5 text-base leading-relaxed text-[--gm-text-soft] 2xl:text-lg">
               <p>
                 Since our establishment in 2022, our Visa Consultancy and Education Guidance
-                services have supported more than 2000+ successful visa cases, while our Airline
+                services have supported successful visa cases, while our Airline
                 Ticketing, Digital Marketing, Media, Real Estate, and other professional services
                 continue to expand our ability to serve individuals and businesses.
               </p>
-              <p>
-                Our ambition goes beyond traditional service delivery. Through initiatives such as
-                Job Portal and Matrimonial, together with our media platform Vettri TV, we are
-                building a technology-driven ecosystem that brings together opportunities,
-                services, and communities — without losing sight of the values that matter most:
-                integrity, transparency, quality, care, and long-term partnerships.
-              </p>
-              <p>
-                As we grow across Sri Lanka and expand our digital presence, we welcome
-                opportunities to work with educational institutions, recruitment agencies,
-                corporate organisations, media partners, investors, and other strategic partners.
-              </p>
+              {preview ? (
+                <p>
+                  Our ambition goes beyond...{" "}
+                  <Link
+                    href="/director-message"
+                    className="inline-flex items-center gap-1 font-semibold text-gm-maroon underline decoration-gm-maroon/40 underline-offset-4 transition-colors hover:text-gm-green hover:decoration-gm-green focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gm-green focus-visible:ring-offset-2"
+                  >
+                    See more
+                    <span aria-hidden="true">→</span>
+                  </Link>
+                </p>
+              ) : (
+                <>
+                  <p>
+                    Our ambition goes beyond traditional service delivery. Through initiatives such as
+                    Job Portal and Matrimonial, together with our media platform Vettri TV, we are
+                    building a technology-driven ecosystem that brings together opportunities,
+                    services, and communities — without losing sight of the values that matter most:
+                    integrity, transparency, quality, care, and long-term partnerships.
+                  </p>
+                  <p>
+                    As we grow across Sri Lanka and expand our digital presence, we welcome
+                    opportunities to work with educational institutions, recruitment agencies,
+                    corporate organisations, media partners, investors, and other strategic partners.
+                  </p>
+                </>
+              )}
             </div>
           </div>
         </div>

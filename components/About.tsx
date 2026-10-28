@@ -3,8 +3,8 @@ import React from "react";
 
 export default function About() {
   return (
-    <section id="about" className="bg-gm-ink text-white py-16 sm:py-20 md:py-28">
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+    <section id="about" className="bg-gm-ink text-white py-10 sm:py-14 lg:py-[4.5rem]">
+      <div className="gm-container grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="max-w-[420px] mx-auto md:max-w-none w-full md:sticky md:top-24">
           <div className="aspect-square w-full border border-[--gm-line-inv] overflow-hidden">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -21,7 +21,7 @@ export default function About() {
             About us
           </div>
 
-          <div className="space-y-4 text-base leading-relaxed text-[--gm-text-soft-inv]">
+          <div className="space-y-5 text-base leading-relaxed text-[--gm-text-soft-inv] md:text-lg">
             <p>
               Global Max Networks (Private) Limited is a diversified Sri Lankan company
               established in 2022, committed to building a trusted, technology-driven

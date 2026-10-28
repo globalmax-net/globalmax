@@ -60,7 +60,7 @@ export default async function Home() {
 />
       <Brand />
       <Hero />
-      <DirectorMessage />
+      <DirectorMessage preview />
       <Success stats={successStats} />
       <Services services={services} upcoming={upcoming} compactSpacing />
       <LatestPosts />

@@ -80,12 +80,12 @@ export default async function SinglePostPage({
         <section className="relative overflow-hidden">
           <div className={`absolute inset-x-0 top-0 h-80 bg-gradient-to-br ${postTheme.hero}`} />
 
-          <div className="relative mx-auto max-w-6xl px-4 pb-12 pt-24 sm:px-6 lg:px-8 lg:pt-28">
+          <div className="relative mx-auto max-w-6xl gm-page-gutter pb-12 pt-24 lg:pt-28">
             <nav aria-label="Breadcrumb">
               <ol className="flex flex-wrap items-center gap-2 text-sm text-slate-600">
                 <li><Link href="/" className="transition-colors hover:text-gm-maroon">Home</Link></li>
                 <li aria-hidden="true">/</li>
-                <li><Link href="/post" className={`font-medium transition-colors ${postTheme.accent} ${postTheme.accentHover}`}>Blog</Link></li>
+                <li><Link href="/post" className={`font-medium transition-colors ${postTheme.accent} ${postTheme.accentHover}`}>Posts</Link></li>
                 <li aria-hidden="true">/</li>
                 <li aria-current="page" className="max-w-[16rem] truncate font-medium text-slate-900">{post.category}</li>
               </ol>
@@ -167,7 +167,7 @@ export default async function SinglePostPage({
         </section>
 
         {post.thumbnail && (
-          <section className="mx-auto mb-12 max-w-6xl px-4 sm:px-6 lg:px-8 sm:mb-16">
+          <section className="mx-auto mb-12 max-w-6xl gm-page-gutter sm:mb-16">
             <div className="relative aspect-[16/9] overflow-hidden rounded-[28px] border border-slate-200 bg-slate-100 shadow-[0_30px_80px_rgba(15,23,42,0.08)]">
               <Image
                 src={post.thumbnail}
@@ -181,7 +181,7 @@ export default async function SinglePostPage({
           </section>
         )}
 
-        <article className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8 lg:pb-20">
+        <article className="mx-auto max-w-6xl gm-page-gutter pb-16 lg:pb-20">
           <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-10">
             <div
               className={`
@@ -286,7 +286,7 @@ export default async function SinglePostPage({
                       LinkedIn
                     </a>
                     <a
-                      href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Read this article: ${shareUrl}`)}`}
+                      href={`mailto:?subject=${encodeURIComponent(post.title)}&body=${encodeURIComponent(`Read this post: ${shareUrl}`)}`}
                       className="rounded-full border border-slate-200 bg-slate-50 px-3 py-2 text-xs font-semibold text-slate-700 transition-colors hover:border-blue-200 hover:bg-blue-50 hover:text-blue-700"
                     >
                       Email
@@ -344,7 +344,7 @@ export default async function SinglePostPage({
         </article>
 
         {relatedPosts.length > 0 && (
-          <section className="mx-auto max-w-6xl px-4 pb-20 sm:px-6 lg:px-8">
+          <section className="mx-auto max-w-6xl gm-page-gutter pb-20">
             <div className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className={`text-sm font-semibold uppercase tracking-[0.2em] ${postTheme.accent}`}>

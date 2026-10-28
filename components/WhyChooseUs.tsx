@@ -34,14 +34,14 @@ const REASONS: Reason[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section id="why-us" className="pt-4 pb-10 sm:pt-6 sm:pb-12 md:pt-8 md:pb-20 ">
-      <div className="max-w-[1180px] mx-auto px-4 sm:px-6 md:px-10">
+    <section id="why-us" className="py-10 sm:py-14 lg:py-[4.5rem]">
+      <div className="gm-container">
         <div className="max-w-[640px] mb-10 md:mb-14">
           <div className="mb-4 flex items-center gap-3 font-mono text-[12.5px] uppercase tracking-widest text-gm-green">
             <span className="h-[2px] w-8 bg-gm-green" />
             Why choose us
           </div>
-          <h2 className="font-display text-[26px] sm:text-[32px] md:text-[38px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
+          <h2 className="font-display text-[30px] sm:text-[36px] md:text-[42px] font-semibold tracking-tight leading-tight text-[--gm-ink]">
             Why choose
             <span className="block text-gm-maroon">Global Max?</span>
           </h2>
@@ -51,7 +51,7 @@ export default function WhyChooseUs() {
           {REASONS.map((reason, i) => (
             <article key={reason.title} className={`pt-5 border-t-2 ${i % 2 === 0 ? "border-gm-maroon" : "border-gm-green"}`}>
               <h4 className="font-display text-[19px] font-semibold leading-snug mb-3">{reason.title}</h4>
-              <p className="text-[14.5px] text-[--gm-text-soft]">{reason.detail}</p>
+              <p className="text-base leading-relaxed text-[--gm-text-soft]">{reason.detail}</p>
             </article>
           ))}
         </div>

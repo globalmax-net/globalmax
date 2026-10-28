@@ -29,7 +29,7 @@ export default function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 backdrop-blur border-b border-[--gm-line] bg-white/90">
-      <div className="gm-container px-4 sm:px-6 md:px-10 flex items-center justify-between h-16 sm:h-[76px] gap-3">
+      <div className="gm-container flex items-center justify-between h-16 sm:h-[76px] gap-3">
         <Link href="/" className="flex items-center min-w-0 shrink-0" onClick={() => setOpen(false)}>
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/logo-transparent.png" alt="Global Max Networks" className="block h-auto w-[36vw] max-w-[140px] object-contain sm:w-[150px] md:w-[160px] xl:w-[180px]" />
@@ -40,7 +40,7 @@ export default function Header() {
             <Link
               key={link.label}
               href={link.href}
-              className="font-mono text-[14px] xl:text-[15px] 2xl:text-base uppercase tracking-wider text-[--gm-text-soft] pb-1 border-b border-transparent hover:border-gm-maroon hover:text-gm-maroon transition whitespace-nowrap"
+              className="font-mono text-[15px] xl:text-base uppercase tracking-wider text-[--gm-text-soft] pb-1 border-b border-transparent hover:border-gm-maroon hover:text-gm-maroon transition whitespace-nowrap"
             >
               {link.label}
             </Link>
@@ -50,7 +50,7 @@ export default function Header() {
         <div className="flex items-center gap-2 sm:gap-3">
           <Link
             href="/#contact"
-            className="hidden sm:inline-flex font-mono text-[13px] md:text-[15px] uppercase tracking-wide border border-gm-green text-gm-maroon px-3 md:px-[18px] py-2 md:py-[9px] transition hover:bg-gm-maroon hover:text-white whitespace-nowrap"
+            className="hidden sm:inline-flex font-mono text-sm md:text-[15px] uppercase tracking-wide border border-gm-green text-gm-maroon px-3 md:px-[18px] py-2 md:py-[9px] transition hover:bg-gm-maroon hover:text-white whitespace-nowrap"
           >
             Get in Touch
           </Link>
@@ -76,7 +76,7 @@ export default function Header() {
       </div>
 
       <div className={`lg:hidden border-t border-[--gm-line] bg-white ${open ? "block" : "hidden"}`}>
-        <nav className="gm-container px-4 sm:px-6 py-4 flex flex-col gap-1">
+        <nav className="gm-container py-4 flex flex-col gap-1">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.label}

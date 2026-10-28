@@ -10,7 +10,7 @@ export default function ContactCTA() {
       <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-black/5" />
       <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-black/5" />
 
-      <div className="gm-container relative px-4 sm:px-6 lg:px-8">
+      <div className="gm-container relative">
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <span className="mb-4 inline-flex items-center rounded-full border border-black/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em]">
@@ -21,7 +21,7 @@ export default function ContactCTA() {
             Planning to study abroad, travel, or grow your business?
           </h2>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-black/70 sm:text-base 2xl:text-lg">
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-black/70 sm:text-lg">
             Let&apos;s talk and find the right solution for you.
           </p>
         </div>
@@ -41,14 +41,14 @@ export default function ContactCTA() {
             <div className="mt-3 space-y-2">
               <a
                 href="tel:0117722992"
-                className="block text-[17px] font-semibold transition-opacity hover:opacity-60"
+                className="block text-base sm:text-lg font-semibold transition-opacity hover:opacity-60"
               >
                 011 77 22 992
               </a>
 
               <a
                 href="tel:0247722992"
-                className="block text-[17px] font-semibold transition-opacity hover:opacity-60"
+                className="block text-base sm:text-lg font-semibold transition-opacity hover:opacity-60"
               >
                 024 77 22 992
               </a>
@@ -67,7 +67,7 @@ export default function ContactCTA() {
 
             <a
               href="tel:0777722992"
-              className="mt-3 block text-[17px] font-semibold transition-opacity hover:opacity-60"
+              className="mt-3 block text-base sm:text-lg font-semibold transition-opacity hover:opacity-60"
             >
               077 77 22 992
             </a>
@@ -86,14 +86,14 @@ export default function ContactCTA() {
             <div className="mt-3 space-y-2">
               <a
                 href="mailto:globalmaxnet@gmail.com"
-                className="block break-words text-[15px] font-semibold transition-opacity hover:opacity-60"
+                className="block break-words text-base font-semibold transition-opacity hover:opacity-60"
               >
                 globalmaxnet@gmail.com
               </a>
 
               <a
                 href="mailto:info@globalmax.lk"
-                className="block break-words text-[15px] font-semibold transition-opacity hover:opacity-60"
+                className="block break-words text-base font-semibold transition-opacity hover:opacity-60"
               >
                 info@globalmax.lk
               </a>
@@ -110,7 +110,7 @@ export default function ContactCTA() {
               Visit Us
             </h3>
 
-            <address className="mt-3 not-italic text-[15px] font-semibold leading-6">
+            <address className="mt-3 not-italic text-base font-semibold leading-7">
               No. 79, 2nd Floor, Kandasamy Kovil Road, Vavuniya
             </address>
           </div>
@@ -118,7 +118,7 @@ export default function ContactCTA() {
 
         {/* Bottom CTA */}
         <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center justify-between gap-4 border-t border-black/15 pt-8 sm:flex-row xl:max-w-[1400px] 2xl:max-w-[1520px]">
-          <p className="text-sm font-medium text-black/70">
+          <p className="text-base font-medium text-black/70">
             We&apos;re here to help. Get in touch with us today.
           </p>
 

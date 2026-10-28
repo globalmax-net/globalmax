@@ -14,7 +14,7 @@ export default async function PostsPage() {
     .sort({ createdAt: -1 })
     .lean();
   const featuredPost = posts.find((post) => post.featured);
-  const articlePosts = featuredPost
+  const otherPosts = featuredPost
     ? posts.filter((post) => String(post._id) !== String(featuredPost._id))
     : posts;
   const featuredThemeKey: PostTheme =
@@ -24,25 +24,25 @@ export default async function PostsPage() {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gradient-to-b from-gm-paper-2/70 via-white to-white pb-20 pt-28 sm:pt-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <main className="min-h-screen bg-gradient-to-b from-gm-paper-2/70 via-white to-white pb-16 pt-24 sm:pb-20 sm:pt-28">
+        <div className="mx-auto max-w-7xl gm-page-gutter">
           <header className="mx-auto max-w-3xl text-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gm-green">
-              Global Max Journal
+              Global Max Posts
             </p>
             <h1 className="mt-3 text-4xl font-black tracking-tight text-gm-ink sm:text-5xl">
-              Ideas, insights &amp; stories
+              Ideas, insights &amp; posts
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-gm-ink/65 sm:text-lg">
               Practical guidance and fresh perspectives from the Global Max team.
-              Explore our latest articles and updates.
+              Explore our latest posts and updates.
             </p>
           </header>
 
           {posts.length > 0 ? (
             <>
               {featuredPost && (
-                <section aria-labelledby="featured-article-heading" className="mt-12 sm:mt-16">
+                <section aria-labelledby="featured-post-heading" className="mt-10 sm:mt-12">
                   <Link
                     href={`/post/${featuredPost.slug || featuredPost._id}`}
                     className="group grid overflow-hidden rounded-3xl border border-gm-paper-2 bg-white shadow-[0_24px_70px_rgba(32,27,27,0.09)] transition-shadow hover:shadow-[0_30px_80px_rgba(32,27,27,0.14)] lg:grid-cols-[1.1fr_0.9fr]"
@@ -59,7 +59,7 @@ export default async function PostsPage() {
                         />
                       )}
                       <span className="absolute left-5 top-5 rounded-full bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-gm-maroon shadow-sm">
-                        Featured article
+                        Featured post
                       </span>
                     </div>
                     <div className={`flex flex-col justify-center bg-gradient-to-br ${featuredTheme.hero} p-6 sm:p-10 lg:p-12`}>
@@ -67,7 +67,7 @@ export default async function PostsPage() {
                         {featuredPost.category}
                       </span>
                       <h2
-                        id="featured-article-heading"
+                        id="featured-post-heading"
                         className={`mt-5 text-3xl font-black leading-tight tracking-tight text-gm-ink sm:text-4xl ${featuredTheme.card}`}
                       >
                         {featuredPost.title}
@@ -87,31 +87,31 @@ export default async function PostsPage() {
                         <span>{getPostReadingTime(featuredPost.content)}</span>
                       </div>
                       <span className={`mt-8 inline-flex items-center gap-2 text-sm font-bold ${featuredTheme.accent}`}>
-                        Read featured article <span aria-hidden="true">→</span>
+                        Read featured post <span aria-hidden="true">→</span>
                       </span>
                     </div>
                   </Link>
                 </section>
               )}
 
-              <section aria-labelledby="latest-articles-heading" className="mt-16 sm:mt-20">
+              <section aria-labelledby="latest-posts-heading" className="mt-12 sm:mt-16">
                 <div className="mb-7 flex flex-wrap items-end justify-between gap-3">
                   <div>
                     <p className="text-xs font-bold uppercase tracking-[0.18em] text-gm-green">
                       The latest
                     </p>
-                    <h2 id="latest-articles-heading" className="mt-2 text-2xl font-bold tracking-tight text-gm-ink sm:text-3xl">
-                      {featuredPost ? "More articles" : "Latest articles"}
+                    <h2 id="latest-posts-heading" className="mt-2 text-2xl font-bold tracking-tight text-gm-ink sm:text-3xl">
+                      {featuredPost ? "More posts" : "Latest posts"}
                     </h2>
                   </div>
                   <p className="text-sm text-gm-ink/55">
-                    {articlePosts.length} {articlePosts.length === 1 ? "article" : "articles"}
+                    {otherPosts.length} {otherPosts.length === 1 ? "post" : "posts"}
                   </p>
                 </div>
 
-                {articlePosts.length > 0 ? (
+                {otherPosts.length > 0 ? (
                   <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                    {articlePosts.map((post) => {
+                    {otherPosts.map((post) => {
                 const themeKey: PostTheme = isPostTheme(post.theme) ? post.theme : "ocean";
                 const theme = POST_THEMES[themeKey];
 
@@ -161,7 +161,7 @@ export default async function PostsPage() {
                             })}
                           </time>
                           <span className={`inline-flex items-center gap-1 text-sm font-semibold ${theme.accent}`}>
-                            Read article <span aria-hidden="true">→</span>
+                            Read post <span aria-hidden="true">→</span>
                           </span>
                         </div>
                       </div>
@@ -172,7 +172,7 @@ export default async function PostsPage() {
                   </div>
                 ) : featuredPost ? (
                   <p className="rounded-2xl border border-dashed border-slate-300 bg-white p-8 text-center text-sm text-slate-600">
-                    More articles will appear here soon.
+                    More posts will appear here soon.
                   </p>
                 ) : null}
               </section>
@@ -182,7 +182,7 @@ export default async function PostsPage() {
               <p className="text-sm font-semibold uppercase tracking-[0.18em] text-gm-green">
                 Coming soon
               </p>
-              <h2 className="mt-3 text-2xl font-bold text-gm-ink">Our articles are on the way</h2>
+              <h2 className="mt-3 text-2xl font-bold text-gm-ink">Our posts are on the way</h2>
               <p className="mx-auto mt-3 max-w-lg text-sm leading-6 text-gm-ink/60">
                 Please check back soon for practical guidance, company news, and fresh perspectives.
               </p>

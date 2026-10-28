@@ -468,7 +468,7 @@ export default function PostEditorForm({
             </h1>
 
             <p className="mt-1 text-sm text-gm-ink/50">
-              Create and manage your blog article.
+              Create and manage your posts.
             </p>
           </div>
 
@@ -493,7 +493,7 @@ export default function PostEditorForm({
               </h2>
 
               <p className="mt-1 text-sm text-gm-ink/60">
-                Add the basic information for your article.
+                Add the basic information for your post.
               </p>
             </div>
 
@@ -536,12 +536,12 @@ export default function PostEditorForm({
                 onChange={(event) =>
                   setSlug(createPostSlug(event.target.value))
                 }
-                placeholder="my-first-blog-post"
+                placeholder="my-first-post"
                 className="mt-1 block w-full rounded-md border border-gm-paper-2 p-3 text-sm shadow-sm focus:border-gm-green focus:outline-none focus:ring-1 focus:ring-gm-green"
               />
 
               <p className="mt-1 text-xs text-gm-ink/50">
-                /post/{slug || "my-first-blog-post"}
+                /post/{slug || "my-first-post"}
               </p>
             </div>
 
@@ -846,7 +846,7 @@ export default function PostEditorForm({
               </h2>
 
               <p className="mt-1 text-sm text-gm-ink/60">
-                Control how this post appears on your blog.
+                Control how this post appears on the site.
               </p>
             </div>
 
@@ -894,7 +894,7 @@ export default function PostEditorForm({
                   </p>
 
                   <p className="text-xs text-gm-ink/50">
-                    Highlight this post on your blog.
+                    Highlight this post on the posts page.
                   </p>
                 </div>
               </label>

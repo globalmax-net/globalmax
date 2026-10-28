@@ -40,15 +40,20 @@ export default function Success({
   stats?: SuccessStat[];
 }) {
   return (
-    <section className=" border-white/60 shadow-md shrink-0 bg-gm-maroon py-4 sm:py-5 md:py-6">
-      <div className="gm-container px-4 sm:px-6 md:px-10 flex justify-center">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-10">
-          {stats.map((s) => (
-            <div key={`${s.label}-${s.value}`}>
-              <b className="font-display block text-[28px] sm:text-[36px] md:text-[44px] font-semibold tracking-tight text-white">
+    <section aria-label="Global Max achievements" className="shrink-0 bg-gm-maroon py-6 shadow-md sm:py-8">
+      <div className="gm-container">
+        <div className="mx-auto grid max-w-[1400px] grid-cols-2 gap-y-7 md:grid-cols-4 md:gap-y-0">
+          {stats.map((s, index) => (
+            <div
+              key={`${s.label}-${s.value}`}
+              className={`flex flex-col items-center justify-center px-3 text-center sm:px-5 md:px-6 ${
+                index % 4 !== 0 ? "md:border-l md:border-white/20" : ""
+              }`}
+            >
+              <b className="font-display block text-[36px] font-semibold tracking-tight text-white sm:text-[42px] md:text-[48px] xl:text-[54px]">
                 {s.value}
               </b>
-              <span className="font-mono text-[12.5px] uppercase tracking-wide text-[--gm-text-soft] text-white">
+              <span className="mt-1 font-body text-sm font-medium leading-snug tracking-wide text-white/85 sm:text-base">
                 {s.label}
               </span>
             </div>

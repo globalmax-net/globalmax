@@ -21,7 +21,7 @@ export function HeroContent() {
 
   return (
     <>
-      <div className="gm-container px-4 sm:px-6 md:px-10 grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 xl:gap-16 pt-8 sm:pt-12 md:pt-16 pb-8 md:pb-10">
+      <div className="gm-container grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-8 lg:gap-14 xl:gap-16 pt-6 sm:pt-10 md:pt-14 pb-6 md:pb-8">
 
         {/* LEFT CONTENT */}
         <div
@@ -43,7 +43,7 @@ export function HeroContent() {
 
           {/* HEADING */}
           <h1
-            className={`font-display text-[30px] sm:text-[40px] md:text-[54px] xl:text-[64px] 2xl:text-[72px] leading-[1.08] tracking-tight font-semibold max-w-[680px] xl:max-w-[820px] transition-all duration-[1400ms] delay-200 ${
+            className={`font-display text-[30px] sm:text-[40px] md:text-[54px] xl:text-[64px] 2xl:text-[68px] leading-[1.08] tracking-tight font-semibold max-w-[680px] xl:max-w-[820px] transition-all duration-[1400ms] delay-200 ${
               loaded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-12 opacity-0"
@@ -61,7 +61,7 @@ export function HeroContent() {
 
           {/* DESCRIPTION */}
           <p
-            className={`mt-5 sm:mt-6 text-[15px] sm:text-[17px] xl:text-[19px] leading-relaxed max-w-[560px] xl:max-w-[700px] text-[--gm-text-soft-inv] transition-all duration-[1200ms] delay-500 ${
+            className={`mt-5 sm:mt-6 text-base sm:text-lg xl:text-xl leading-relaxed max-w-[560px] xl:max-w-[700px] text-[--gm-text-soft-inv] transition-all duration-[1200ms] delay-500 ${
               loaded
                 ? "translate-y-0 opacity-100"
                 : "translate-y-8 opacity-0"
@@ -175,11 +175,11 @@ export function HeroContent() {
 
       {/* TICKER */}
       <div className="group/ticker overflow-hidden whitespace-nowrap border-t border-b border-[--gm-line-inv] hover:bg-white/[0.02]">
-        <div className="inline-flex items-center gap-12 py-3.5 animate-gm-scroll motion-reduce:animate-none group-hover/ticker:[animation-play-state:paused]">
+        <div className="inline-flex items-center gap-12 py-3 animate-gm-scroll motion-reduce:animate-none group-hover/ticker:[animation-play-state:paused]">
           {tickerItems.map((fact, i) => (
             <span
               key={`${fact}-${i}`}
-              className="group/fact font-mono inline-flex gap-2.5 items-center text-[13px] text-[--gm-text-soft-inv] transition-colors duration-300 hover:text-white"
+              className="group/fact font-mono inline-flex gap-2.5 items-center text-sm text-[--gm-text-soft-inv] transition-colors duration-300 hover:text-white"
             >
               <span className="relative flex h-2 w-2">
                 <span className="absolute inset-0 rounded-full bg-gm-green opacity-0 scale-100 transition-all duration-300 group-hover/fact:opacity-50 group-hover/fact:scale-150" />

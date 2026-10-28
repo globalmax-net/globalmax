@@ -3,9 +3,14 @@
 @tailwind utilities;
 
 @layer components {
+  .gm-page-gutter {
+    width: calc(100% - clamp(3rem, 15vw, 18rem));
+    margin-inline: auto;
+  }
+
   .gm-container {
-    width: 100%;
-    max-width: 1180px;
+    width: calc(100% - clamp(3rem, 15vw, 18rem));
+    max-width: 1200px;
     margin-inline: auto;
   }
 
@@ -48,6 +53,10 @@ body {
 body {
   background: #FFFFFF;
   color: #201B1B;
+  font-size: clamp(1rem, 0.9rem + 0.25vw, 1.125rem);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 img,

@@ -35,7 +35,7 @@ const COLUMNS = [
 export default function Footer() {
   return (
     <footer className="bg-gm-ink text-white border-t border-[--gm-line-inv] pt-12 md:pt-16">
-      <div className="gm-container px-4 sm:px-6 md:px-10">
+      <div className="gm-container">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.2fr] gap-10 md:gap-12 pb-12 md:pb-16">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
